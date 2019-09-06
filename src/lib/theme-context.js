@@ -19,3 +19,13 @@ export function useThemeSetter() {
 
   return setTheme
 }
+
+export function getThemeValue(themeName) {
+  return (props) => {
+    if (props.theme) {
+      return props.theme.theme[themeName]
+    }
+
+    return undefined
+  }
+}
