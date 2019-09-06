@@ -2,8 +2,8 @@
 
 import React from "react"
 import { Route, Router } from "react-router"
-import { useRouterHistories } from "../lib/histories"
-import { MainTemplate } from "../ui/templates"
+import { useRouterHistories } from "@lib/histories"
+import { MainTemplate } from "@mobileFight/ui/templates"
 import { LoginPage } from "./join/login/page"
 import { LocationPage } from "./arena/location/page"
 

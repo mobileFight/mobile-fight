@@ -8,7 +8,7 @@ import React, {
   useCallback,
 } from "react"
 import { ThemeProvider } from "styled-components"
-import { type Theme } from "../ui/themes"
+import { type Theme } from "@mobileFight/ui/themes"
 
 export type ThemeControllerProps = {
   children: Node,

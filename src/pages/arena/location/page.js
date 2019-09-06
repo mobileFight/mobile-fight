@@ -1,7 +1,7 @@
 // @flow strict
 
 import React from "react"
-import { ArenaTemplate } from "../../../ui/templates"
+import { ArenaTemplate } from "@mobileFight/ui/templates"
 
 export function LocationPage() {
   return (

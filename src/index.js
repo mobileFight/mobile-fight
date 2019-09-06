@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { RoutersHistoryController } from "@lib/histories"
 import { App } from "./app"
-import { RoutersHistoryController } from "./lib/histories"
 import * as serviceWorker from "./serviceWorker"
 
 const app = (

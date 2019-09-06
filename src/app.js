@@ -3,9 +3,9 @@
 import React from "react"
 import { Router } from "react-router"
 import { Normalize } from "styled-normalize"
-import { useRouterHistories } from "./lib/histories"
-import { ThemeController } from "./lib/theme-context"
-import { lightTheme } from "./ui/themes"
+import { useRouterHistories } from "@lib/histories"
+import { ThemeController } from "@lib/theme-context"
+import { lightTheme } from "@mobileFight/ui/themes"
 import { routes } from "./pages"
 import { GlobalStyles } from "./global-styles"
 
