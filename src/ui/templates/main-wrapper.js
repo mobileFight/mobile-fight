@@ -9,14 +9,12 @@ const MainWrapper: ComponentType<*> = styled.div`
 `
 
 const LeftSideBar = styled.div`
-  width: 350px;
-  border-right: 1px solid #f3efeb;
+  min-width: 350px;
 `
 
 const Header = styled.header`
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid #f3efeb;
 `
 
 const ContentAndHeaderWrapper = styled.div`
@@ -27,7 +25,6 @@ const ContentAndHeaderWrapper = styled.div`
 
 const RightSideBar = styled.div`
   flex: 0 0 auto;
-  border-left: 1px solid #f3efeb;
   width: 320px;
 `
 

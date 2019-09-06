@@ -7,17 +7,19 @@ import { useRouterHistories } from "./lib/histories"
 import { ThemeController } from "./lib/theme-context"
 import { lightTheme } from "./ui/themes"
 import { routes } from "./pages"
+import { GlobalStyles } from "./global-styles"
 
 export function App() {
   const { browser } = useRouterHistories()
 
   return (
-    <>
-      <Normalize />
-      <ThemeController themes={{ lightTheme }} initialTheme="lightTheme">
+    <ThemeController themes={{ lightTheme }} initialTheme="lightTheme">
+      <>
+        <Normalize />
+        <GlobalStyles />
         {/* $FlowFixMe */}
         <Router history={browser}>{routes}</Router>
-      </ThemeController>
-    </>
+      </>
+    </ThemeController>
   )
 }
