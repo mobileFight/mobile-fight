@@ -11,7 +11,7 @@ export function ArenaRouter() {
   const { memory } = useRouterHistories()
 
   return (
-    <MainTemplate>
+    <MainTemplate rightSideBar="rightSideBar (not rerender in root)">
       {/* $FlowFixMe */}
       <Router history={memory}>
         <Route component={LocationPage} />

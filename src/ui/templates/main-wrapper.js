@@ -48,7 +48,7 @@ export function MainTemplate({
   return (
     <MainWrapper>
       {children}
-      <RightSideBar>{rightSideBar}</RightSideBar>
+      {Boolean(rightSideBar) && <RightSideBar>{rightSideBar}</RightSideBar>}
     </MainWrapper>
   )
 }
