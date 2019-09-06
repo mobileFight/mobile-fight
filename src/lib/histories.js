@@ -1,7 +1,19 @@
-import React, { createContext, useMemo, useContext } from "react"
-import { createMemoryHistory, createBrowserHistory } from "history"
+// @flow strict
 
-export const RoutersHistoryContext = createContext()
+import React, { type Node, createContext, useMemo, useContext } from "react"
+import {
+  type MemoryHistory,
+  type BrowserHistory,
+  createMemoryHistory,
+  createBrowserHistory,
+} from "history"
+
+export type HistoryContext = {
+  browser: BrowserHistory,
+  memory: MemoryHistory,
+}
+
+export const RoutersHistoryContext = createContext<HistoryContext>({})
 
 export function useRouterHistories() {
   const histories = useContext(RoutersHistoryContext)
@@ -9,7 +21,7 @@ export function useRouterHistories() {
   return histories
 }
 
-export function RoutersHistoryController({ children }) {
+export function RoutersHistoryController({ children }: { children: Node }) {
   const histories = useMemo(
     () => ({ browser: createBrowserHistory(), memory: createMemoryHistory() }),
     [],

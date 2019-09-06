@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from "react"
 
 export function LoginPage() {

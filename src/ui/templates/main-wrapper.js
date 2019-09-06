@@ -1,7 +1,9 @@
-import React from "react"
+// @flow strict
+
+import React, { type Node, type ElementType, type ComponentType } from "react"
 import styled from "styled-components"
 
-const Wrapper = styled.div`
+const MainWrapper: ComponentType<*> = styled.div`
   display: flex;
   height: 100vh;
 `
@@ -36,21 +38,35 @@ const Content = styled.div`
   display: flex;
 `
 
-export function MainTemplate({ children, rightSideBar }) {
+export function MainTemplate({
+  children,
+  rightSideBar,
+}: {
+  children: Node,
+  rightSideBar: ElementType,
+}) {
   return (
-    <Wrapper>
+    <MainWrapper>
       {children}
-      <RightSideBar>rightSideBar</RightSideBar>
-    </Wrapper>
+      <RightSideBar>{rightSideBar}</RightSideBar>
+    </MainWrapper>
   )
 }
 
-export function ArenaTemplate({ children, leftSideBar, header }) {
+export function ArenaTemplate({
+  children,
+  leftSideBar,
+  header,
+}: {
+  children: Node,
+  leftSideBar: ElementType,
+  header: ElementType,
+}) {
   return (
     <>
-      {leftSideBar && <LeftSideBar>{leftSideBar}</LeftSideBar>}
+      {Boolean(leftSideBar) && <LeftSideBar>{leftSideBar}</LeftSideBar>}
       <ContentAndHeaderWrapper>
-        {header && <Header>{header}</Header>}
+        {Boolean(header) && <Header>{header}</Header>}
         <Content>{children}</Content>
       </ContentAndHeaderWrapper>
     </>

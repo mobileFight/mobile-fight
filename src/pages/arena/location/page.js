@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from "react"
 import { ArenaTemplate } from "../../../ui/templates"
 

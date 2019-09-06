@@ -7,7 +7,6 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
     "styled-components": "^4.3.2",
     "styled-normalize": "^8.0.6"
@@ -16,7 +15,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "flow:test:code": "npx flow .",
+    "eslint:test:code": "npx eslint .",
+    "flow-typed:install": "rm -rf ./flow-typed/npm && flow-typed install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +37,8 @@
   },
   "devDependencies": {
     "@atomix/eslint-config-react": "^7.1.0",
+    "flow-bin": "^0.107.0",
+    "flow-typed": "^2.6.1",
     "prettier": "^1.18.2"
   }
 }

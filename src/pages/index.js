@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from "react"
 import { Route, Router } from "react-router"
 import { useRouterHistories } from "../lib/histories"
@@ -10,6 +12,7 @@ export function ArenaRouter() {
 
   return (
     <MainTemplate>
+      {/* $FlowFixMe */}
       <Router history={memory}>
         <Route component={LocationPage} />
       </Router>

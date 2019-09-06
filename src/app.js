@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from "react"
 import { Router } from "react-router"
 import { Normalize } from "styled-normalize"
@@ -12,7 +14,8 @@ export function App() {
   return (
     <>
       <Normalize />
-      <ThemeController lightTheme={lightTheme} initialTheme="lightTheme">
+      <ThemeController themes={{ lightTheme }} initialTheme="lightTheme">
+        {/* $FlowFixMe */}
         <Router history={browser}>{routes}</Router>
       </ThemeController>
     </>

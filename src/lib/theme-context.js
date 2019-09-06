@@ -1,31 +1,50 @@
-import React, { useState, useContext, useMemo } from "react"
-import { ThemeContext } from "styled-components"
+// @flow strict
 
-export function ThemeController({ children, initialTheme, ...themes }) {
-  const [theme, setTheme] = useState(themes[initialTheme])
-  const value = useMemo(
-    () => ({
-      theme,
-      setTheme,
-    }),
-    [theme],
+import React, {
+  type Node,
+  useState,
+  useContext,
+  createContext,
+  useCallback,
+} from "react"
+import { ThemeProvider } from "styled-components"
+import { type Theme } from "../ui/themes"
+
+export type ThemeControllerProps = {
+  children: Node,
+  initialTheme: string,
+  themes: { [string]: Theme },
+}
+
+export type ThemeSetterContextType = (theme: string) => void
+
+export const ThemeSetterContext = createContext<?ThemeSetterContextType>()
+
+export function ThemeController({
+  children,
+  initialTheme,
+  themes,
+}: ThemeControllerProps) {
+  const [theme, setTheme] = useState<Theme>(themes[initialTheme])
+
+  const themeSetter = useCallback(
+    (themeName: string) => {
+      if (themes[themeName]) {
+        setTheme(themes[themeName])
+      }
+    },
+    [themes],
   )
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  return (
+    <ThemeSetterContext.Provider value={themeSetter}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </ThemeSetterContext.Provider>
+  )
 }
 
 export function useThemeSetter() {
-  const { setTheme } = useContext(ThemeContext)
+  const setTheme = useContext(ThemeSetterContext)
 
   return setTheme
-}
-
-export function getThemeValue(themeName) {
-  return (props) => {
-    if (props.theme) {
-      return props.theme.theme[themeName]
-    }
-
-    return undefined
-  }
 }
