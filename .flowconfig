@@ -10,6 +10,7 @@
 
 module.name_mapper='^@lib/' ->'<PROJECT_ROOT>/src/lib/'
 module.name_mapper='^@mobileFight/ui' ->'<PROJECT_ROOT>/src/ui'
-
+module.name_mapper='^@assets/' ->'<PROJECT_ROOT>/src/assets/'
+module.name_mapper='^@features/' ->'<PROJECT_ROOT>/src/features/'
 
 [strict]

@@ -6,7 +6,9 @@
     "lib": ["es2015", "es2016", "dom"],
     "paths": {
       "@mobileFight/ui/*": ["./ui/*"],
-      "@lib/*": ["./lib/*"]
+      "@lib/*": ["./lib/*"],
+      "@assets/*": ["./assets/*"],
+      "@features/*": ["./features/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
