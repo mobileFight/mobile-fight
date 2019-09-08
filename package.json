@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "faker": "^4.1.0",
     "history": "^4.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
