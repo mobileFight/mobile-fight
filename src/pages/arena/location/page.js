@@ -2,14 +2,8 @@
 
 import React from "react"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
+import { ArenaFooter } from "@features/arena"
 
 export function LocationPage() {
-  return (
-    <ArenaTemplate
-      header="header (uniq for arena)"
-      leftSideBar="leftsidebar (uniq for arena)"
-    >
-      LocationPage
-    </ArenaTemplate>
-  )
+  return <ArenaTemplate footer={<ArenaFooter />}>LocationPage</ArenaTemplate>
 }

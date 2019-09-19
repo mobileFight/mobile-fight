@@ -1,2 +1,2 @@
 export * from "./container"
-export * from "./main-wrapper"
+export * from "./main-template"

@@ -23,5 +23,6 @@ module.exports = {
         ignoreMemberSort: true,
       },
     ],
+    "react/require-default-props": "off",
   },
 }

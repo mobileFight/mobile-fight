@@ -12,7 +12,7 @@ declare module "react-router" {
     state?: any,
     key?: string,
     ...
-  }
+  };
 
   declare export type LocationShape = {
     pathname?: string,
@@ -20,16 +20,16 @@ declare module "react-router" {
     hash?: string,
     state?: any,
     ...
-  }
+  };
 
-  declare export type HistoryAction = "PUSH" | "REPLACE" | "POP"
+  declare export type HistoryAction = "PUSH" | "REPLACE" | "POP";
 
   declare export type RouterHistory = {
     length: number,
     location: Location,
     action: HistoryAction,
     listen(
-      callback: (location: Location, action: HistoryAction) => void,
+      callback: (location: Location, action: HistoryAction) => void
     ): () => void,
     push(path: string | LocationShape, state?: any): void,
     replace(path: string | LocationShape, state?: any): void,
@@ -38,15 +38,13 @@ declare module "react-router" {
     goForward(): void,
     canGo?: (n: number) => boolean,
     block(
-      callback:
-        | string
-        | ((location: Location, action: HistoryAction) => ?string),
+      callback: string | (location: Location, action: HistoryAction) => ?string
     ): () => void,
     // createMemoryHistory
     index?: number,
     entries?: Array<Location>,
     ...
-  }
+  };
 
   declare export type Match = {
     params: { [key: string]: ?string, ... },
@@ -54,21 +52,21 @@ declare module "react-router" {
     path: string,
     url: string,
     ...
-  }
+  };
 
   declare export type ContextRouter = {|
     history: RouterHistory,
     location: Location,
     match: Match,
-    staticContext?: StaticRouterContext,
-  |}
+    staticContext?: StaticRouterContext
+  |};
 
   declare export type GetUserConfirmation = (
     message: string,
-    callback: (confirmed: boolean) => void,
-  ) => void
+    callback: (confirmed: boolean) => void
+  ) => void;
 
-  declare type StaticRouterContext = { url?: string, ... }
+  declare type StaticRouterContext = { url?: string, ... };
 
   declare export class StaticRouter extends React$Component<{
     basename?: string,
@@ -104,8 +102,9 @@ declare module "react-router" {
     push?: boolean,
     from?: string,
     exact?: boolean,
-    strict?: boolean,
+    strict?: boolean
   |}> {}
+
 
   declare export class Route extends React$Component<{|
     component?: React$ComponentType<*>,
@@ -115,17 +114,17 @@ declare module "react-router" {
     exact?: boolean,
     strict?: boolean,
     location?: LocationShape,
-    sensitive?: boolean,
+    sensitive?: boolean
   |}> {}
 
   declare export class Switch extends React$Component<{|
     children?: React$Node,
-    location?: Location,
+    location?: Location
   |}> {}
 
   declare export function withRouter<P>(
-    Component: React$ComponentType<{| ...ContextRouter, ...P |}>,
-  ): React$ComponentType<P>
+    Component: React$ComponentType<{| ...ContextRouter, ...P |}>
+  ): React$ComponentType<P>;
 
   declare type MatchPathOptions = {
     path?: string | string[],
@@ -133,15 +132,12 @@ declare module "react-router" {
     strict?: boolean,
     sensitive?: boolean,
     ...
-  }
+  };
 
   declare export function matchPath(
     pathname: string,
-    options?: MatchPathOptions | string | string[],
-  ): null | Match
-
-  declare export function generatePath(
-    pattern?: string,
-    params?: { ... },
-  ): string
+    options?: MatchPathOptions | string | string[]
+  ): null | Match;
+  
+  declare export function generatePath(pattern?: string, params?: {...}): string;
 }

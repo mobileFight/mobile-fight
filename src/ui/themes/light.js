@@ -9,4 +9,5 @@ export const lightTheme: Theme = {
     primaryLight: "#c4ae7f",
     secondary: "#ff6700",
   },
+  screenSize: { width: 480, height: 720 },
 }
