@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from "react"
+import React, { type Node } from "react"
 import styled, { css } from "styled-components"
 import scrollBody from "@assets/scroll-patterns/main/body.png"
 import scrollTailLeft from "@assets/scroll-patterns/main/tail.png"
@@ -49,7 +49,6 @@ const PlaneWrapper: StyledUI<{ down?: boolean }> = styled.div`
 
 const Body = styled.div`
   display: flex;
-  min-height: 100px;
   background-color: ${(props) => props.theme.colors.primaryLight};
   width: calc(100% - 28px);
   align-self: center;
@@ -68,11 +67,11 @@ function Plane({ down = false }: { down?: boolean }) {
   )
 }
 
-export function SimpleScroll() {
+export function SimpleScroll({ children }: { children?: Node }) {
   return (
     <ScrollWrapper>
       <Plane />
-      <Body />
+      <Body>{children}</Body>
       <Plane down />
     </ScrollWrapper>
   )

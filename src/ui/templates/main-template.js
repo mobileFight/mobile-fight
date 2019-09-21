@@ -8,14 +8,16 @@ const ArenaTemplateWrapper: StyledEmptyUI = styled.div`
   display: flex;
   max-width: ${(props) => props.theme.screenSize.width}px;
   width: 100%;
-  height: ${(props) => props.theme.screenSize.height}px;
-  box-shadow: 0px 0px 2px 0px ${(props) => props.theme.colors.primaryDark};
+  max-height: ${(props) => props.theme.screenSize.height}px;
+  height: 100%;
   flex-direction: column;
   position: relative;
 `
 
 const ContentWrapper: StyledEmptyUI = styled.div`
   flex: 1 1 auto;
+  max-height: 100%;
+  overflow: scroll;
 `
 
 const FooterWrapper: StyledEmptyUI = styled.div`

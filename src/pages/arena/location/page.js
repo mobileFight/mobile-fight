@@ -4,8 +4,8 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter, LocationPreview, SimpleScroll } from "@features/arena"
-import { Button } from "@mobileFight/ui/atoms"
-import location from "@assets/location.jpg"
+import { Button, spriteIcon } from "@mobileFight/ui/atoms"
+import locationPreview from "@assets/location.jpg"
 
 const menuItems = [
   "Клан",
@@ -35,7 +35,42 @@ const LocationsWrapper = styled.div`
   flex-direction: row;
   margin-top: 10px;
   margin-left: 5%;
+  margin-bottom: 15px;
 `
+
+const LocationItem = styled.li`
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding: 0 5px;
+`
+
+const LocationBody = styled.ul`
+  padding: 0;
+  list-style: none;
+  margin: 0 15px;
+  flex: 1 1 auto;
+
+  > ${LocationItem} {
+    margin-bottom: 10px;
+    border-bottom: 1px solid ${(props) => props.theme.colors.primaryDark};
+    user-select: none;
+    cursor: pointer;
+  }
+`
+
+const LocationItemLeftIcon = styled.div`
+  margin-right: 15px;
+`
+
+const locations = [
+  "Тракт",
+  "Забкое Ущелье",
+  "Поместьме Раввика",
+  "Слободка",
+  "Коллектор",
+  "Верхний Город",
+]
 
 export function LocationPage() {
   const [isOpenMenu, toggleMenu] = useState(false)
@@ -60,13 +95,39 @@ export function LocationPage() {
       }
     >
       <>
-        <LocationPreview locationImage={location} locationName="Школа Воинов" />
+        <LocationPreview
+          locationImage={locationPreview}
+          locationName="Школа Воинов"
+        />
         <HuntingButtonsWrapper>
           <Button primary>Охота</Button>
           <Button primary>Дуэли</Button>
         </HuntingButtonsWrapper>
         <LocationsWrapper>
-          <SimpleScroll />
+          <SimpleScroll>
+            <LocationBody>
+              <LocationItem>
+                <LocationItemLeftIcon>
+                  <spriteIcon.component
+                    icon={spriteIcon.indexes.location.quest}
+                    type="location"
+                  />
+                </LocationItemLeftIcon>
+                Задания
+              </LocationItem>
+              {locations.map((location) => (
+                <LocationItem key={location}>
+                  <LocationItemLeftIcon>
+                    <spriteIcon.component
+                      icon={spriteIcon.indexes.location.pointer}
+                      type="location"
+                    />
+                  </LocationItemLeftIcon>
+                  {location}
+                </LocationItem>
+              ))}
+            </LocationBody>
+          </SimpleScroll>
         </LocationsWrapper>
       </>
     </ArenaTemplate>
