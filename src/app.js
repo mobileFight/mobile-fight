@@ -6,6 +6,7 @@ import { Normalize } from "styled-normalize"
 import { useRouterHistories } from "@lib/histories"
 import { ThemeController } from "@lib/theme-context"
 import { lightTheme } from "@mobileFight/ui/themes"
+import { ModalRootProvider } from "@mobileFight/ui/organisms"
 import { routes } from "./pages"
 import { GlobalStyles } from "./global-styles"
 
@@ -14,12 +15,14 @@ export function App() {
 
   return (
     <ThemeController themes={{ lightTheme }} initialTheme="lightTheme">
-      <>
-        <Normalize />
-        <GlobalStyles />
-        {/* $FlowFixMe */}
-        <Router history={browser}>{routes}</Router>
-      </>
+      <ModalRootProvider>
+        <>
+          <Normalize />
+          <GlobalStyles />
+          {/* $FlowFixMe */}
+          <Router history={browser}>{routes}</Router>
+        </>
+      </ModalRootProvider>
     </ThemeController>
   )
 }

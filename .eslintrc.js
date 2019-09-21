@@ -24,5 +24,6 @@ module.exports = {
       },
     ],
     "react/require-default-props": "off",
+    "react/jsx-wrap-multilines": "off",
   },
 }

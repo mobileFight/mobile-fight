@@ -26,14 +26,12 @@ export type MixinProps = {
   width?: number | string,
 }
 
-export const is = (value?: CSSRules): boolean %checks =>
-  typeof value !== "undefined"
+export const is = (value?: CSSRules): boolean %checks => Boolean(value)
 
 export const prop = (value?: CSSRules): CSSRules =>
   is(value) ? value : "initial"
 
-export const ifProp = (currentProp: CSSRules, style: { [string]: mixed }) =>
-  is(currentProp) && style
+export const ifProp = (name, ifStyles) => (props) => is(props[name]) && ifStyles
 
 export const mixins = (props: MixinProps) => css`
   align-content: ${prop(props.alignContent)};

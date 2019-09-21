@@ -1,16 +1,17 @@
 // @flow strict
 
-import React, { type Node, type ElementType } from "react"
-import styled, { css } from "styled-components"
-import type { StyledEmptyUI, StyledUI } from "../styled-with-flow"
-import { Container } from "./container"
+import React, { type Node } from "react"
+import styled from "styled-components"
+import type { StyledEmptyUI } from "../styled-with-flow"
 
 const ArenaTemplateWrapper: StyledEmptyUI = styled.div`
   display: flex;
-  width: ${(props) => props.theme.screenSize.width}px;
+  max-width: ${(props) => props.theme.screenSize.width}px;
+  width: 100%;
   height: ${(props) => props.theme.screenSize.height}px;
   box-shadow: 0px 0px 2px 0px ${(props) => props.theme.colors.primaryDark};
   flex-direction: column;
+  position: relative;
 `
 
 const ContentWrapper: StyledEmptyUI = styled.div`
@@ -23,14 +24,10 @@ const FooterWrapper: StyledEmptyUI = styled.div`
 
 export function ArenaTemplate({
   children,
-  leftSideBar,
-  header,
   footer,
 }: {
   children: Node,
-  leftSideBar: ElementType,
-  header: ElementType,
-  footer: ElementType,
+  footer: Node,
 }) {
   return (
     <ArenaTemplateWrapper>
