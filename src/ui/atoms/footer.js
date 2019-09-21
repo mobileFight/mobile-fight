@@ -11,7 +11,7 @@ export const FooterWrapper: StyledEmptyUI = styled.div`
   padding: 15px;
   background-color: ${(props) => props.theme.colors.primaryDark};
   color: white;
-  font-weight: bold;
+  font-weight: 300;
   user-select: none;
 `
 

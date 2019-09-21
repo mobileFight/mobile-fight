@@ -20,11 +20,11 @@ export function ArenaFooter({
       <FooterUI
         left={
           <Button minimal onClick={onOpenMenu}>
-            menu
+            меню
           </Button>
         }
         center={<Timer />}
-        right="right"
+        right="выход"
       />
       {isOpenMenu && (
         <Modal onOverlayClick={onCloseMenu}>

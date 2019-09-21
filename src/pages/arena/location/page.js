@@ -22,6 +22,7 @@ const HuntingButtonsWrapper = styled.div`
   justify-content: space-around;
   width: 90%;
   margin-left: 5%;
+  margin-top: 5px;
 
   > button {
     width: 46%;
@@ -59,10 +60,10 @@ export function LocationPage() {
       }
     >
       <>
-        <LocationPreview locationImage={location} />
+        <LocationPreview locationImage={location} locationName="Школа Воинов" />
         <HuntingButtonsWrapper>
-          <Button primary>hunting</Button>
-          <Button primary>duel</Button>
+          <Button primary>Охота</Button>
+          <Button primary>Дуэли</Button>
         </HuntingButtonsWrapper>
         <LocationsWrapper>
           <SimpleScroll />
