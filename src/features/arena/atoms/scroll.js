@@ -31,7 +31,8 @@ const ScrollTail: StyledUI<{ right?: boolean }> = styled.div`
 const ScrollWrapper: StyledEmptyUI = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
+  width: 100%;
 `
 
 const PlaneWrapper: StyledUI<{ down?: boolean }> = styled.div`
@@ -55,6 +56,7 @@ const Body = styled.div`
   border: 1px solid ${(props) => props.theme.colors.primaryDark};
   border-top-width: 0;
   border-bottom-width: 0;
+  flex-direction: column;
 `
 
 function Plane({ down = false }: { down?: boolean }) {

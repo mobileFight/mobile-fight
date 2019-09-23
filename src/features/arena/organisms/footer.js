@@ -1,33 +1,50 @@
 // @flow strict
 
-import React from "react"
+import React, { useState } from "react"
 import { Footer as FooterUI, Timer, Button } from "@mobileFight/ui/atoms"
 import { Modal, MenuItem, MenuWrapper } from "@mobileFight/ui/organisms"
 import { useRouterHistories } from "@lib/histories"
 
 export function ArenaFooter({
   menuItems,
-  onCloseMenu,
-  onOpenMenu,
-  isOpenMenu,
+  isNested,
 }: {
   menuItems: Array<{ title: string, to: string }>,
-  onCloseMenu: () => void,
-  onOpenMenu: () => void,
-  isOpenMenu: boolean,
+  isNested?: boolean,
 }) {
   const { memory } = useRouterHistories()
+  const [isOpenMenu, toggleMenu] = useState(false)
+
+  function onCloseMenu() {
+    toggleMenu(false)
+  }
+
+  function onOpenMenu() {
+    toggleMenu(true)
+  }
+
+  function goBack() {
+    memory.goBack()
+  }
 
   return (
     <>
       <FooterUI
         left={
           <Button minimal onClick={onOpenMenu}>
-            меню
+            Меню
           </Button>
         }
         center={<Timer />}
-        right="выход"
+        right={
+          isNested ? (
+            <Button minimal onClick={goBack}>
+              Назад
+            </Button>
+          ) : (
+            "Выход"
+          )
+        }
       />
       {isOpenMenu && (
         <Modal onOverlayClick={onCloseMenu}>

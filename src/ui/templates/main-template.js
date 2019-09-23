@@ -15,6 +15,9 @@ const ArenaTemplateWrapper: StyledEmptyUI = styled.div`
 const ArenaTemplateInner: StyledEmptyUI = styled.div`
   max-width: ${(props) => props.theme.screenSize.width}px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 `
 
 const ContentWrapper: StyledEmptyUI = styled.div`

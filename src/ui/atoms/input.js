@@ -9,6 +9,6 @@ export const Input: StyledEmptyUI = styled.input.attrs({
   outline: none;
   background-color: ${(props) => props.theme.colors.primaryLight};
   border: 1px solid ${(props) => props.theme.colors.primaryDark};
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   padding: 5px 15px;
 `

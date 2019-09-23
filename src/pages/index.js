@@ -5,6 +5,7 @@ import { Route, Router } from "react-router"
 import { useRouterHistories } from "@lib/histories"
 import { LoginPage } from "./join/login/page"
 import { LocationPage } from "./arena/location/page"
+import { HuntingListPage } from "./arena/hunting/page"
 import { ChatPage } from "./chat/page"
 
 export function ArenaRouter() {
@@ -16,6 +17,7 @@ export function ArenaRouter() {
       <Router history={memory}>
         <Route component={LocationPage} path="/" exact />
         <Route component={ChatPage} path="/chat" exact />
+        <Route component={HuntingListPage} path="/hunting-list" exact />
       </Router>
     </>
   )

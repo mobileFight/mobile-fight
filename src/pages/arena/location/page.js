@@ -1,11 +1,12 @@
 // @flow strict
 
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter, LocationPreview, SimpleScroll } from "@features/arena"
-import { Button, spriteIcon } from "@mobileFight/ui/atoms"
+import { Button, spriteIcon, Separator } from "@mobileFight/ui/atoms"
 import locationPreview from "@assets/location.jpg"
+import { useRouterHistories } from "@lib/histories"
 
 const menuItems = [
   {
@@ -17,8 +18,8 @@ const menuItems = [
 const HuntingButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 90%;
-  margin-left: 5%;
+  width: 96%;
+  margin-left: 2%;
   margin-top: 5px;
 
   > button {
@@ -27,12 +28,12 @@ const HuntingButtonsWrapper = styled.div`
 `
 
 const LocationsWrapper = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   margin-top: 10px;
-  margin-left: 5%;
   margin-bottom: 15px;
+  justify-content: center;
 `
 
 const LocationItem = styled.li`
@@ -40,11 +41,6 @@ const LocationItem = styled.li`
   height: 30px;
   align-items: center;
   padding: 0 5px;
-  transition: 0.4s;
-
-  &:hover {
-    transform: translate(10px, 0);
-  }
 `
 
 const LocationBody = styled.ul`
@@ -74,34 +70,24 @@ const locations = [
 ]
 
 export function LocationPage() {
-  const [isOpenMenu, toggleMenu] = useState(false)
-
-  function onCloseMenu() {
-    toggleMenu(false)
-  }
-
-  function onOpenMenu() {
-    toggleMenu(true)
-  }
+  const { memory } = useRouterHistories()
 
   return (
-    <ArenaTemplate
-      footer={
-        <ArenaFooter
-          menuItems={menuItems}
-          isOpenMenu={isOpenMenu}
-          onCloseMenu={onCloseMenu}
-          onOpenMenu={onOpenMenu}
-        />
-      }
-    >
+    <ArenaTemplate footer={<ArenaFooter menuItems={menuItems} />}>
       <>
         <LocationPreview
           locationImage={locationPreview}
           locationName="Школа Воинов"
         />
         <HuntingButtonsWrapper>
-          <Button primary>Охота</Button>
+          <Button
+            primary
+            onClick={() => {
+              memory.push("hunting-list")
+            }}
+          >
+            Охота
+          </Button>
           <Button primary>Дуэли</Button>
         </HuntingButtonsWrapper>
         <LocationsWrapper>
@@ -116,16 +102,20 @@ export function LocationPage() {
                 </LocationItemLeftIcon>
                 Задания
               </LocationItem>
-              {locations.map((location) => (
-                <LocationItem key={location}>
-                  <LocationItemLeftIcon>
-                    <spriteIcon.component
-                      icon={spriteIcon.indexes.location.pointer}
-                      type="location"
-                    />
-                  </LocationItemLeftIcon>
-                  {location}
-                </LocationItem>
+              <Separator w="86%" />
+              {locations.map((location, index) => (
+                <>
+                  <LocationItem key={location}>
+                    <LocationItemLeftIcon>
+                      <spriteIcon.component
+                        icon={spriteIcon.indexes.location.pointer}
+                        type="location"
+                      />
+                    </LocationItemLeftIcon>
+                    {location}
+                  </LocationItem>
+                  {index < locations.length - 1 && <Separator w="86%" />}
+                </>
               ))}
             </LocationBody>
           </SimpleScroll>

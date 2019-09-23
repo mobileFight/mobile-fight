@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { Message } from "@features/chat"
@@ -34,10 +34,15 @@ const MessageWrapper = styled(Message)`
 const messagesList = []
 
 export function ChatPage() {
+  const [messageValue, setMessage] = useState("")
   const { memory } = useRouterHistories()
 
   function toBackLocation() {
-    memory.goBack()
+    memory.replace("/")
+  }
+
+  function changeMessage(event: SyntheticInputEvent<HTMLInputElement>) {
+    setMessage(event.target.value)
   }
 
   return (
@@ -54,7 +59,11 @@ export function ChatPage() {
       }
     >
       <ChatWrapper>
-        <Input placeholder="Type here..." />
+        <Input
+          placeholder="Type here..."
+          value={messageValue}
+          onChange={changeMessage}
+        />
         <SendButton primary>send</SendButton>
         <Messages>
           {messagesList.map((message) => (
