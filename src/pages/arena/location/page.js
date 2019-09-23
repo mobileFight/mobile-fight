@@ -88,7 +88,14 @@ export function LocationPage() {
           >
             Охота
           </Button>
-          <Button primary>Дуэли</Button>
+          <Button
+            primary
+            onClick={() => {
+              memory.push("duels")
+            }}
+          >
+            Дуэли
+          </Button>
         </HuntingButtonsWrapper>
         <LocationsWrapper>
           <SimpleScroll>

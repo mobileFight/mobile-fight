@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter, SimpleScroll } from "@features/arena"
