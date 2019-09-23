@@ -32,7 +32,7 @@ const Footer = styled.div`
 `
 
 const LocationName = styled.div`
-  width: 254px;
+  width: 240px;
   height: 58px;
   background-image: url(${locationTitle});
   justify-content: center;

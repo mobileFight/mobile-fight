@@ -3,11 +3,9 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-
   body, html {
     background-color: ${(props) => props.theme.colors.primary};
-    font-family: "Raleway", sans-serif;
+    font-family: Tahoma,Arial;
     display: flex;
     justify-content: center;
     align-items: center;

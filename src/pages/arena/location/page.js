@@ -8,13 +8,10 @@ import { Button, spriteIcon } from "@mobileFight/ui/atoms"
 import locationPreview from "@assets/location.jpg"
 
 const menuItems = [
-  "Клан",
-  "Магазин",
-  "Банк",
-  "Онлайн",
-  "ТОП",
-  "Друзья",
-  "Почта",
+  {
+    title: "Чат",
+    to: "/chat",
+  },
 ]
 
 const HuntingButtonsWrapper = styled.div`
@@ -43,6 +40,11 @@ const LocationItem = styled.li`
   height: 30px;
   align-items: center;
   padding: 0 5px;
+  transition: 0.4s;
+
+  &:hover {
+    transform: translate(10px, 0);
+  }
 `
 
 const LocationBody = styled.ul`
@@ -53,7 +55,6 @@ const LocationBody = styled.ul`
 
   > ${LocationItem} {
     margin-bottom: 10px;
-    border-bottom: 1px solid ${(props) => props.theme.colors.primaryDark};
     user-select: none;
     cursor: pointer;
   }

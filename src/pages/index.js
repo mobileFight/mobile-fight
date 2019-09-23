@@ -5,6 +5,7 @@ import { Route, Router } from "react-router"
 import { useRouterHistories } from "@lib/histories"
 import { LoginPage } from "./join/login/page"
 import { LocationPage } from "./arena/location/page"
+import { ChatPage } from "./chat/page"
 
 export function ArenaRouter() {
   const { memory } = useRouterHistories()
@@ -13,7 +14,8 @@ export function ArenaRouter() {
     <>
       {/* $FlowFixMe */}
       <Router history={memory}>
-        <Route component={LocationPage} />
+        <Route component={LocationPage} path="/" exact />
+        <Route component={ChatPage} path="/chat" exact />
       </Router>
     </>
   )
