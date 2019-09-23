@@ -4,7 +4,10 @@ import styled, { css } from "styled-components"
 import { ifProp } from "@lib/styled-component-layout"
 import type { StyledUI } from "../styled-with-flow"
 
-export const Button: StyledUI<{ minimal?: boolean }> = styled.button.attrs({
+export const Button: StyledUI<{
+  minimal?: boolean,
+  primary?: boolean,
+}> = styled.button.attrs({
   type: "button",
 })`
   outline: none;

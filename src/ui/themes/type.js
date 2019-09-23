@@ -9,7 +9,6 @@ export type BaseColors = {
 
 export type ScreenSize = {
   width: number,
-  height: number,
 }
 
 export type Theme = {
