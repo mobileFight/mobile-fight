@@ -6,22 +6,29 @@ import type { StyledEmptyUI } from "../styled-with-flow"
 
 const ArenaTemplateWrapper: StyledEmptyUI = styled.div`
   display: flex;
-  max-width: ${(props) => props.theme.screenSize.width}px;
-  width: 100%;
-  max-height: ${(props) => props.theme.screenSize.height}px;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   flex-direction: column;
   position: relative;
 `
 
+const ArenaTemplateInner: StyledEmptyUI = styled.div`
+  max-width: ${(props) => props.theme.screenSize.width}px;
+  width: 100%;
+`
+
 const ContentWrapper: StyledEmptyUI = styled.div`
-  flex: 1 1 auto;
-  max-height: 100%;
+  display: flex;
+  height: 100%;
   overflow: scroll;
+  justify-content: center;
 `
 
 const FooterWrapper: StyledEmptyUI = styled.div`
   flex: 0 0 auto;
+  max-width: ${(props) => props.theme.screenSize.width}px;
+  width: 100vw;
+  align-self: center;
 `
 
 export function ArenaTemplate({
@@ -33,7 +40,9 @@ export function ArenaTemplate({
 }) {
   return (
     <ArenaTemplateWrapper>
-      <ContentWrapper>{children}</ContentWrapper>
+      <ContentWrapper>
+        <ArenaTemplateInner>{children}</ArenaTemplateInner>
+      </ContentWrapper>
       {footer && <FooterWrapper>{footer}</FooterWrapper>}
     </ArenaTemplateWrapper>
   )
