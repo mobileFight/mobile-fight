@@ -10,6 +10,10 @@ import { useRouterHistories } from "@lib/histories"
 
 const menuItems = [
   {
+    title: "Магазин",
+    to: "/market",
+  },
+  {
     title: "Чат",
     to: "/chat",
   },

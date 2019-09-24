@@ -1,8 +1,9 @@
 // @flow strict
 
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import icons from "@assets/sprites/icons.png"
-import type { StyledUI } from "../styled-with-flow"
+import { ifProp } from "@lib/styled-component-layout"
+import { StyledUI } from "../styled-with-flow"
 
 const indexes = {
   money: {
@@ -29,6 +30,7 @@ export type IconsType = "money" | "location"
 export type SpriteIconProps = {
   icon: SpriteIconAssets,
   type: IconsType,
+  inline?: boolean,
 }
 
 export function getIconSize(type: IconsType) {
@@ -50,6 +52,13 @@ const SpriteIcon: StyledUI<SpriteIconProps> = styled.div`
   background-position-x: ${(props) =>
     getIconPosition(props.icon, props.type)}px;
   background-repeat: no-repeat;
+
+  ${ifProp(
+    "inline",
+    css`
+      display: inline-block;
+    `,
+  )}
 `
 
 export const spriteIcon = {
