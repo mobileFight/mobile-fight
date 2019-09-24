@@ -4,6 +4,7 @@ import React from "react"
 import styled from "styled-components"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter, SimpleScroll } from "@features/arena"
+import { List } from "@features/common"
 import { H3, Separator, Button } from "@mobileFight/ui/atoms"
 import mobPreview1 from "@assets/hunting-preview/1.png"
 import mobPreview2 from "@assets/hunting-preview/2.png"
@@ -54,15 +55,18 @@ export function HuntingListPage() {
         <H3 center>-Охота-</H3>
         <SimpleScroll>
           <MobsList>
-            {mobs.map((mob, index) => (
-              <React.Fragment key={mob.title}>
-                <MobItem>
-                  <img src={mob.img} alt="preview" />
-                  {mob.title} [{mob.lvl}]
-                </MobItem>
-                {index < mobs.length - 1 && <Separator w="86%" />}
-              </React.Fragment>
-            ))}
+            <List
+              data={mobs}
+              renderRow={(mob, index) => (
+                <React.Fragment key={mob.title}>
+                  <MobItem>
+                    <img src={mob.img} alt="preview" />
+                    {mob.title} [{mob.lvl}]
+                  </MobItem>
+                  {index < mobs.length - 1 && <Separator w="86%" />}
+                </React.Fragment>
+              )}
+            />
           </MobsList>
         </SimpleScroll>
         <CurrentFights primary>Текущие бои</CurrentFights>

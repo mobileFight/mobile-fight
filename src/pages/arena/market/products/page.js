@@ -6,6 +6,7 @@ import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter } from "@features/arena"
 import { H3, spriteIcon } from "@mobileFight/ui/atoms"
 import type { StyledEmptyUI } from "@mobileFight/ui/styled-with-flow"
+import { List } from "@features/common"
 import weaponImage from "@assets/weapon.png"
 
 const menuItems = [
@@ -104,18 +105,21 @@ export function ProductsPage() {
       <>
         <H3 center>-Оружие-</H3>
         <ProductBody>
-          {products.map((product) => (
-            <ProductItem key={product.title}>
-              <img src={weaponImage} alt="*" />
-              <Description>
-                <p>{product.title}</p>
-                <p>Уроовень: {product.lvl}</p>
-                <Price>
-                  Цена: {silverIcon} {product.lvl}
-                </Price>
-              </Description>
-            </ProductItem>
-          ))}
+          <List
+            data={products}
+            renderRow={(product) => (
+              <ProductItem key={product.title}>
+                <img src={weaponImage} alt="*" />
+                <Description>
+                  <p>{product.title}</p>
+                  <p>Уроовень: {product.lvl}</p>
+                  <Price>
+                    Цена: {silverIcon} {product.lvl}
+                  </Price>
+                </Description>
+              </ProductItem>
+            )}
+          />
         </ProductBody>
       </>
     </ArenaTemplate>

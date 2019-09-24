@@ -4,6 +4,7 @@ import React from "react"
 import styled from "styled-components"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter, LocationPreview, SimpleScroll } from "@features/arena"
+import { List } from "@features/common"
 import { Button, spriteIcon, Separator } from "@mobileFight/ui/atoms"
 import locationPreview from "@assets/location.jpg"
 import { useRouterHistories } from "@lib/histories"
@@ -114,20 +115,23 @@ export function LocationPage() {
                 Задания
               </LocationItem>
               <Separator w="86%" />
-              {locations.map((location, index) => (
-                <>
-                  <LocationItem key={location}>
-                    <LocationItemLeftIcon>
-                      <spriteIcon.component
-                        icon={spriteIcon.indexes.location.pointer}
-                        type="location"
-                      />
-                    </LocationItemLeftIcon>
-                    {location}
-                  </LocationItem>
-                  {index < locations.length - 1 && <Separator w="86%" />}
-                </>
-              ))}
+              <List
+                data={locations}
+                renderRow={(location, index) => (
+                  <React.Fragment key={location}>
+                    <LocationItem>
+                      <LocationItemLeftIcon>
+                        <spriteIcon.component
+                          icon={spriteIcon.indexes.location.pointer}
+                          type="location"
+                        />
+                      </LocationItemLeftIcon>
+                      {location}
+                    </LocationItem>
+                    {index < locations.length - 1 && <Separator w="86%" />}
+                  </React.Fragment>
+                )}
+              />
             </LocationBody>
           </SimpleScroll>
         </LocationsWrapper>

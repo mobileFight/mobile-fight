@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { Message } from "@features/chat"
+import { List } from "@features/common"
 import { Button, Input, Footer, Timer } from "@mobileFight/ui/atoms"
 import { useRouterHistories } from "@lib/histories"
 
@@ -66,14 +67,17 @@ export function ChatPage() {
         />
         <SendButton primary>send</SendButton>
         <Messages>
-          {messagesList.map((message) => (
-            <MessageWrapper
-              date={message.date}
-              name={message.name}
-              lvl={message.lvl}
-              text={message.text}
-            />
-          ))}
+          <List
+            data={messagesList}
+            renderRow={(message) => (
+              <MessageWrapper
+                date={message.date}
+                name={message.name}
+                lvl={message.lvl}
+                text={message.text}
+              />
+            )}
+          />
         </Messages>
       </ChatWrapper>
     </ArenaTemplate>

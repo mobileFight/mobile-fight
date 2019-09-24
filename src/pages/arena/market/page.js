@@ -4,6 +4,7 @@ import React from "react"
 import styled from "styled-components"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter } from "@features/arena"
+import { List } from "@features/common"
 import { H3, Button as ButtonUI } from "@mobileFight/ui/atoms"
 import { useRouterHistories } from "@lib/histories"
 
@@ -28,17 +29,20 @@ export function MarketPage() {
     <ArenaTemplate footer={<ArenaFooter menuItems={menuItems} isNested />}>
       <>
         <H3 center>-Магазин-</H3>
-        {slots.map((slot) => (
-          <Button
-            primary
-            key={slot}
-            onClick={() => {
-              memory.push("products", { title: slot })
-            }}
-          >
-            {slot}
-          </Button>
-        ))}
+        <List
+          data={slots}
+          renderRow={(slot) => (
+            <Button
+              primary
+              key={slot}
+              onClick={() => {
+                memory.push("products", { title: slot })
+              }}
+            >
+              {slot}
+            </Button>
+          )}
+        />
       </>
     </ArenaTemplate>
   )
