@@ -9,6 +9,7 @@
     "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
     "react-scripts": "3.1.1",
+    "shared-types": "git+https://github.com/mobileFight/shared-types.git",
     "styled-components": "^4.3.2",
     "styled-normalize": "^8.0.6"
   },

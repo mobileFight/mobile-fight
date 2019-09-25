@@ -10,6 +10,7 @@ export const lightTheme: Theme = {
     secondary: "#ff6700",
     secondaryLight: "#ff9a00",
     third: "#693401",
+    hovered: "#ddca9f",
   },
   screenSize: { width: 480 },
 }

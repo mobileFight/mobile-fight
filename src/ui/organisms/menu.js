@@ -18,7 +18,7 @@ export const MenuItem: StyledEmptyUI = styled.li`
 
 export const MenuWrapper: StyledEmptyUI = styled.ul`
   background-color: ${(props) => props.theme.colors.primaryDark};
-  width: 100px;
+  min-width: 100px;
   border: 1px solid black;
   list-style: none;
   padding: 0;

@@ -58,6 +58,10 @@ const ProductItem: StyledEmptyUI = styled.li`
   user-select: none;
   cursor: pointer;
 
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hovered};
+  }
+
   > img {
     width: 80px;
     height: 80px;

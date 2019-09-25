@@ -8,6 +8,7 @@ import { List } from "@features/common"
 import { Button, spriteIcon, Separator } from "@mobileFight/ui/atoms"
 import locationPreview from "@assets/location.jpg"
 import { useRouterHistories } from "@lib/histories"
+import type { StyledEmptyUI } from "@mobileFight/ui/styled-with-flow"
 
 const menuItems = [
   {
@@ -17,6 +18,10 @@ const menuItems = [
   {
     title: "Чат",
     to: "/chat",
+  },
+  {
+    title: "Снаряжение",
+    to: "/equipment",
   },
 ]
 
@@ -41,11 +46,15 @@ const LocationsWrapper = styled.div`
   justify-content: center;
 `
 
-const LocationItem = styled.li`
+const LocationItem: StyledEmptyUI = styled.li`
   display: flex;
   height: 30px;
   align-items: center;
   padding: 0 5px;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hovered};
+  }
 `
 
 const LocationBody = styled.ul`

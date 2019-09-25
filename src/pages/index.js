@@ -9,6 +9,7 @@ import { HuntingListPage } from "./arena/hunting/page"
 import { DuelPage } from "./arena/duel/page"
 import { MarketPage } from "./arena/market/page"
 import { ProductsPage } from "./arena/market/products/page"
+import { HeroEquipmentPage } from "./arena/equipment/page"
 import { ChatPage } from "./chat/page"
 
 export function ArenaRouter() {
@@ -24,6 +25,7 @@ export function ArenaRouter() {
         <Route component={DuelPage} path="/duels" exact />
         <Route component={MarketPage} path="/market" exact />
         <Route component={ProductsPage} path="/products" exact />
+        <Route component={HeroEquipmentPage} path="/equipment" exact />
       </Router>
     </>
   )
