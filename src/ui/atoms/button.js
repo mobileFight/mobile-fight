@@ -2,11 +2,26 @@
 
 import styled, { css } from "styled-components"
 import { ifProp } from "@lib/styled-component-layout"
+import okBtn from "@assets/ok-btn.png"
+import cancelBtn from "@assets/cancell-btn.png"
 import type { StyledUI } from "../styled-with-flow"
+
+const imagebleButtonMixin = () => css`
+  width: 50px !important;
+  height: 50px;
+  background-color: transparent;
+  color: transparent;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`
 
 export const Button: StyledUI<{
   minimal?: boolean,
   primary?: boolean,
+  okBtn?: boolean,
+  cancelBtn?: boolean,
 }> = styled.button.attrs({
   type: "button",
 })`
@@ -15,6 +30,7 @@ export const Button: StyledUI<{
   color: inherit;
   font-weight: inherit;
   cursor: pointer;
+  transition: 0.4s;
 
   ${ifProp(
     "minimal",
@@ -39,6 +55,24 @@ export const Button: StyledUI<{
       &:hover {
         background-color: ${(props) => props.theme.colors.secondaryLight};
       }
+    `,
+  )}
+
+  ${ifProp(
+    "okBtn",
+    css`
+      background-image: url(${okBtn});
+
+      ${imagebleButtonMixin}
+    `,
+  )}
+
+  ${ifProp(
+    "cancelBtn",
+    css`
+      background-image: url(${cancelBtn});
+
+      ${imagebleButtonMixin}
     `,
   )}
 `
