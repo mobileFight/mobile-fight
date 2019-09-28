@@ -1,5 +1,6 @@
 // @flow strict
 
+import { QuestStates } from "shared-types"
 import { type Theme } from "./type"
 
 export const lightTheme: Theme = {
@@ -11,6 +12,11 @@ export const lightTheme: Theme = {
     secondaryLight: "#ff9a00",
     third: "#693401",
     hovered: "#ddca9f",
+    quests: {
+      [QuestStates.active]: "#CB2025",
+      [QuestStates.available]: "#000",
+      [QuestStates.completed]: "#008000",
+    },
   },
   screenSize: { width: 480 },
 }

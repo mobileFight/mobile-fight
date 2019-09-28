@@ -2,13 +2,14 @@
 
 import React from "react"
 import styled from "styled-components"
+import { type QuestStatesType, QuestStates } from "shared-types"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter, LocationPreview, SimpleScroll } from "@features/arena"
 import { List } from "@features/common"
 import { Button, spriteIcon, Separator } from "@mobileFight/ui/atoms"
 import locationPreview from "@assets/location.jpg"
 import { useMemoryNavigator, routePaths } from "@lib/histories"
-import type { StyledEmptyUI } from "@mobileFight/ui/styled-with-flow"
+import type { StyledEmptyUI, StyledUI } from "@mobileFight/ui/styled-with-flow"
 
 const HuntingButtonsWrapper = styled.div`
   display: flex;
@@ -59,6 +60,10 @@ const LocationItemLeftIcon = styled.div`
   margin-right: 15px;
 `
 
+const QuestsCounter: StyledUI<{ questType: QuestStatesType }> = styled.span`
+  color: ${(props) => props.theme.colors.quests[props.questType]};
+`
+
 const locations = [
   "Тракт",
   "Забкое Ущелье",
@@ -67,6 +72,10 @@ const locations = [
   "Коллектор",
   "Верхний Город",
 ]
+
+function renderQuestsCounter(counter: number, questType: QuestStatesType) {
+  return <QuestsCounter questType={questType}>{counter}</QuestsCounter>
+}
 
 export function LocationPage() {
   const navigation = useMemoryNavigator()
@@ -99,14 +108,20 @@ export function LocationPage() {
         <LocationsWrapper>
           <SimpleScroll>
             <LocationBody>
-              <LocationItem>
+              <LocationItem
+                onClick={() => {
+                  navigation.navigate(routePaths.QUESTS)
+                }}
+              >
                 <LocationItemLeftIcon>
                   <spriteIcon.component
                     icon={spriteIcon.indexes.location.quest}
                     type="location"
                   />
                 </LocationItemLeftIcon>
-                Задания
+                Задания ({renderQuestsCounter(1, QuestStates.active)}/
+                {renderQuestsCounter(2, QuestStates.available)}/
+                {renderQuestsCounter(0, QuestStates.completed)})
               </LocationItem>
               <Separator w="86%" />
               <List

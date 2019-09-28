@@ -26,6 +26,7 @@ export const routePaths = {
   MARKET: "/market",
   PRODUCTS: "/products",
   EQUIPMENT: "/equipment",
+  QUESTS: "/quests-list",
 }
 
 export function useRouterHistories() {

@@ -29,6 +29,7 @@ export function ArenaFooter({
 }) {
   const navigator = useMemoryNavigator()
   const [isOpenMenu, toggleMenu] = useState(false)
+  const hasItems = menuItems.length > 0
 
   function onCloseMenu() {
     toggleMenu(false)
@@ -46,9 +47,11 @@ export function ArenaFooter({
     <>
       <FooterUI
         left={
-          <Button minimal onClick={onOpenMenu}>
-            Меню
-          </Button>
+          hasItems && (
+            <Button minimal onClick={onOpenMenu}>
+              Меню
+            </Button>
+          )
         }
         center={<Timer />}
         right={

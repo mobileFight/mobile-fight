@@ -14,6 +14,7 @@ import { DuelPage } from "./arena/duel/page"
 import { MarketPage } from "./arena/market/page"
 import { ProductsPage } from "./arena/market/products/page"
 import { HeroEquipmentPage } from "./arena/equipment/page"
+import { QuestsListPage } from "./arena/quests-list/page"
 import { ChatPage } from "./chat/page"
 
 export function ArenaRouter() {
@@ -30,6 +31,7 @@ export function ArenaRouter() {
         <Route component={MarketPage} path={routePaths.MARKET} />
         <Route component={ProductsPage} path={routePaths.PRODUCTS} />
         <Route component={HeroEquipmentPage} path={routePaths.EQUIPMENT} />
+        <Route component={QuestsListPage} path={routePaths.QUESTS} />
       </Router>
     </>
   )
