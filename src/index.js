@@ -1,16 +1,22 @@
+// @flow strict
+
 import React from "react"
 import ReactDOM from "react-dom"
 import { RoutersHistoryController } from "@lib/histories"
 import { App } from "./app"
 import * as serviceWorker from "./serviceWorker"
 
-const app = (
+const app = () => (
   <RoutersHistoryController>
     <App />
   </RoutersHistoryController>
 )
 
-ReactDOM.render(app, document.querySelector("#root"))
+const root = document.querySelector("#root")
+
+if (root) {
+  ReactDOM.render(app(), root)
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

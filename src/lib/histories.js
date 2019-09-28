@@ -78,9 +78,24 @@ export function useMemoryNavigator() {
   }
 }
 
-export function RoutersHistoryController({ children }: { children: Node }) {
+export function RoutersHistoryController({
+  children,
+  initialEntries = [],
+  initialIndex = 0,
+}: {
+  children: Node,
+  initialEntries?: Array<string>,
+  initialIndex?: number,
+}) {
   const histories = useMemo(
-    () => ({ browser: createBrowserHistory(), memory: createMemoryHistory() }),
+    () => ({
+      browser: createBrowserHistory(),
+      memory: createMemoryHistory({
+        initialEntries: ["/", ...initialEntries],
+        initialIndex,
+      }),
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   )
 
