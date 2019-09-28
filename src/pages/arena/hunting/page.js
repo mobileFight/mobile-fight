@@ -9,13 +9,6 @@ import { H3, Separator, Button } from "@mobileFight/ui/atoms"
 import mobPreview1 from "@assets/hunting-preview/1.png"
 import mobPreview2 from "@assets/hunting-preview/2.png"
 
-const menuItems = [
-  {
-    title: "Чат",
-    to: "/chat",
-  },
-]
-
 const mobs = [
   { title: "Гребняк", lvl: 2, img: mobPreview1 },
   { title: "Разбойник", lvl: 4, img: mobPreview2 },
@@ -50,7 +43,7 @@ const CurrentFights = styled(Button)`
 
 export function HuntingListPage() {
   return (
-    <ArenaTemplate footer={<ArenaFooter menuItems={menuItems} isNested />}>
+    <ArenaTemplate footer={<ArenaFooter isNested />}>
       <>
         <H3 center>-Охота-</H3>
         <SimpleScroll>

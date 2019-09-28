@@ -31,6 +31,8 @@ export const Button: StyledUI<{
   font-weight: inherit;
   cursor: pointer;
   transition: 0.4s;
+  padding: 0;
+  margin: 0;
 
   ${ifProp(
     "minimal",
@@ -74,5 +76,5 @@ export const Button: StyledUI<{
 
       ${imagebleButtonMixin}
     `,
-  )}
+  )};
 `

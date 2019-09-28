@@ -7,13 +7,6 @@ import { ArenaFooter } from "@features/arena"
 import { List } from "@features/common"
 import { H3, Button as ButtonUI } from "@mobileFight/ui/atoms"
 
-const menuItems = [
-  {
-    title: "Чат",
-    to: "/chat",
-  },
-]
-
 const duels = ["Начать поединок", "Открытый бой", "Текущие бои"]
 
 const Button = styled(ButtonUI)`
@@ -23,7 +16,7 @@ const Button = styled(ButtonUI)`
 
 export function DuelPage() {
   return (
-    <ArenaTemplate footer={<ArenaFooter menuItems={menuItems} isNested />}>
+    <ArenaTemplate footer={<ArenaFooter isNested />}>
       <>
         <H3 center>-Дуэли-</H3>
         <List

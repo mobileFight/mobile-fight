@@ -2,7 +2,11 @@
 
 import React from "react"
 import { Route, Router } from "react-router"
-import { useRouterHistories } from "@lib/histories"
+import { useRouterHistories, routePaths } from "@lib/histories"
+import {
+  CustomNavigationBehaviorProvider,
+  combineBehaviors,
+} from "@lib/custom-navigation-behavior"
 import { LoginPage } from "./join/login/page"
 import { LocationPage } from "./arena/location/page"
 import { HuntingListPage } from "./arena/hunting/page"
@@ -20,20 +24,22 @@ export function ArenaRouter() {
       {/* $FlowFixMe */}
       <Router history={memory}>
         <Route component={LocationPage} path="/" exact />
-        <Route component={ChatPage} path="/chat" exact />
-        <Route component={HuntingListPage} path="/hunting-list" exact />
-        <Route component={DuelPage} path="/duels" exact />
-        <Route component={MarketPage} path="/market" exact />
-        <Route component={ProductsPage} path="/products" exact />
-        <Route component={HeroEquipmentPage} path="/equipment" exact />
+        <Route component={ChatPage} path={routePaths.CHAT} />
+        <Route component={HuntingListPage} path={routePaths.HUNTING_LIST} />
+        <Route component={DuelPage} path={routePaths.DUELS} />
+        <Route component={MarketPage} path={routePaths.MARKET} />
+        <Route component={ProductsPage} path={routePaths.PRODUCTS} />
+        <Route component={HeroEquipmentPage} path={routePaths.EQUIPMENT} />
       </Router>
     </>
   )
 }
 
+const behaviors = combineBehaviors([])
+
 export const routes = (
-  <>
+  <CustomNavigationBehaviorProvider behaviors={behaviors}>
     <Route component={LoginPage} path="/join/login" />
     <Route component={ArenaRouter} />
-  </>
+  </CustomNavigationBehaviorProvider>
 )

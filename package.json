@@ -7,7 +7,7 @@
     "moment": "^2.24.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-router": "^5.0.1",
+    "react-router": "^5.1.1",
     "react-scripts": "3.1.1",
     "shared-types": "git+https://github.com/mobileFight/shared-types.git",
     "styled-components": "^4.3.2",
@@ -39,6 +39,8 @@
   },
   "devDependencies": {
     "@atomix/eslint-config-react": "^7.1.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "customize-cra": "^0.7.0",
     "flow-bin": "^0.107.0",
     "flow-typed": "^2.6.1",
     "prettier": "^1.18.2",

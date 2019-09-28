@@ -9,13 +9,6 @@ import type { StyledEmptyUI } from "@mobileFight/ui/styled-with-flow"
 import { List } from "@features/common"
 import weaponImage from "@assets/weapon.png"
 
-const menuItems = [
-  {
-    title: "Чат",
-    to: "/chat",
-  },
-]
-
 const products = [
   {
     title: "Крепкая дубина",
@@ -105,7 +98,7 @@ export function ProductsPage() {
   )
 
   return (
-    <ArenaTemplate footer={<ArenaFooter menuItems={menuItems} isNested />}>
+    <ArenaTemplate footer={<ArenaFooter isNested />}>
       <>
         <H3 center>-Оружие-</H3>
         <ProductBody>

@@ -3,16 +3,31 @@
 import React, { useState } from "react"
 import { Footer as FooterUI, Timer, Button } from "@mobileFight/ui/atoms"
 import { Modal, MenuItem, MenuWrapper } from "@mobileFight/ui/organisms"
-import { useRouterHistories } from "@lib/histories"
+import { useMemoryNavigator, routePaths } from "@lib/histories"
+
+const defaultItems = [
+  {
+    title: "Магазин",
+    to: routePaths.MARKET,
+  },
+  {
+    title: "Чат",
+    to: routePaths.CHAT,
+  },
+  {
+    title: "Снаряжение",
+    to: routePaths.EQUIPMENT,
+  },
+]
 
 export function ArenaFooter({
-  menuItems,
+  menuItems = defaultItems,
   isNested,
 }: {
-  menuItems: Array<{ title: string, to: string }>,
+  menuItems?: Array<{ title: string, to: string }>,
   isNested?: boolean,
 }) {
-  const { memory } = useRouterHistories()
+  const navigator = useMemoryNavigator()
   const [isOpenMenu, toggleMenu] = useState(false)
 
   function onCloseMenu() {
@@ -24,7 +39,7 @@ export function ArenaFooter({
   }
 
   function goBack() {
-    memory.goBack()
+    navigator.pop()
   }
 
   return (
@@ -53,7 +68,7 @@ export function ArenaFooter({
               <MenuItem
                 key={item.title}
                 onClick={() => {
-                  memory.push(item.to)
+                  navigator.navigate(item.to)
                 }}
               >
                 {item.title}

@@ -6,7 +6,7 @@ import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { Message } from "@features/chat"
 import { List } from "@features/common"
 import { Button, Input, Footer, Timer } from "@mobileFight/ui/atoms"
-import { useRouterHistories } from "@lib/histories"
+import { useMemoryNavigator } from "@lib/histories"
 
 const ChatWrapper = styled.div`
   display: flex;
@@ -36,10 +36,10 @@ const messagesList = []
 
 export function ChatPage() {
   const [messageValue, setMessage] = useState("")
-  const { memory } = useRouterHistories()
+  const navigator = useMemoryNavigator()
 
   function toBackLocation() {
-    memory.replace("/")
+    navigator.toRootPage()
   }
 
   function changeMessage(event: SyntheticInputEvent<HTMLInputElement>) {

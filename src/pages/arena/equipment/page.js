@@ -10,13 +10,6 @@ import type { StyledEmptyUI } from "@mobileFight/ui/styled-with-flow"
 import { List } from "@features/common"
 import { ifProp } from "@lib/styled-component-layout"
 
-const menuItems = [
-  {
-    title: "Чат",
-    to: "/chat",
-  },
-]
-
 const equipments = [
   {
     equip: true,
@@ -159,13 +152,13 @@ const EquipmentStyle = styled.span`
 
 export function HeroEquipmentPage() {
   return (
-    <ArenaTemplate footer={<ArenaFooter menuItems={menuItems} isNested />}>
+    <ArenaTemplate footer={<ArenaFooter isNested />}>
       <>
         <H3 center>-Снаряжение-</H3>
         <Header>
-          <p>Снаряжение 32/56</p>
+          <p>Снаряжение: 32/56</p>
           <p>
-            Стиль <EquipmentStyle>Нет</EquipmentStyle>
+            Стиль: <EquipmentStyle>Нет</EquipmentStyle>
           </p>
         </Header>
         <EquipmentBody>

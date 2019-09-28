@@ -7,23 +7,8 @@ import { ArenaFooter, LocationPreview, SimpleScroll } from "@features/arena"
 import { List } from "@features/common"
 import { Button, spriteIcon, Separator } from "@mobileFight/ui/atoms"
 import locationPreview from "@assets/location.jpg"
-import { useRouterHistories } from "@lib/histories"
+import { useMemoryNavigator, routePaths } from "@lib/histories"
 import type { StyledEmptyUI } from "@mobileFight/ui/styled-with-flow"
-
-const menuItems = [
-  {
-    title: "Магазин",
-    to: "/market",
-  },
-  {
-    title: "Чат",
-    to: "/chat",
-  },
-  {
-    title: "Снаряжение",
-    to: "/equipment",
-  },
-]
 
 const HuntingButtonsWrapper = styled.div`
   display: flex;
@@ -84,10 +69,10 @@ const locations = [
 ]
 
 export function LocationPage() {
-  const { memory } = useRouterHistories()
+  const navigation = useMemoryNavigator()
 
   return (
-    <ArenaTemplate footer={<ArenaFooter menuItems={menuItems} />}>
+    <ArenaTemplate footer={<ArenaFooter />}>
       <>
         <LocationPreview
           locationImage={locationPreview}
@@ -97,7 +82,7 @@ export function LocationPage() {
           <Button
             primary
             onClick={() => {
-              memory.push("hunting-list")
+              navigation.navigate(routePaths.HUNTING_LIST)
             }}
           >
             Охота
@@ -105,7 +90,7 @@ export function LocationPage() {
           <Button
             primary
             onClick={() => {
-              memory.push("duels")
+              navigation.navigate(routePaths.DUELS)
             }}
           >
             Дуэли

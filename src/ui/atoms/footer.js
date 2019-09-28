@@ -34,9 +34,15 @@ export function Footer({
   return (
     <FooterWrapper>
       <Row justify="space-between" grow={1} shrink={1}>
-        <Col justify="center">{left}</Col>
-        <Col justify="center">{center}</Col>
-        <Col justify="center">{right}</Col>
+        <Col justify="center" grow={1} shrink={1} align="flex-start">
+          {left}
+        </Col>
+        <Col justify="center" grow={1} shrink={1} align="center">
+          {center}
+        </Col>
+        <Col justify="center" grow={1} shrink={1} align="flex-end">
+          {right}
+        </Col>
       </Row>
     </FooterWrapper>
   )

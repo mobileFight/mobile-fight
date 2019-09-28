@@ -6,14 +6,7 @@ import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter } from "@features/arena"
 import { List } from "@features/common"
 import { H3, Button as ButtonUI } from "@mobileFight/ui/atoms"
-import { useRouterHistories } from "@lib/histories"
-
-const menuItems = [
-  {
-    title: "Чат",
-    to: "/chat",
-  },
-]
+import { useRouterHistories, routePaths } from "@lib/histories"
 
 const slots = ["Оружие", "Броня", "Зелья и Свитки"]
 
@@ -26,7 +19,7 @@ export function MarketPage() {
   const { memory } = useRouterHistories()
 
   return (
-    <ArenaTemplate footer={<ArenaFooter menuItems={menuItems} isNested />}>
+    <ArenaTemplate footer={<ArenaFooter isNested />}>
       <>
         <H3 center>-Магазин-</H3>
         <List
@@ -36,7 +29,7 @@ export function MarketPage() {
               primary
               key={slot}
               onClick={() => {
-                memory.push("products", { title: slot })
+                memory.push(routePaths.MARKET, { title: slot })
               }}
             >
               {slot}
