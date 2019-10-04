@@ -24,7 +24,7 @@ export function ArenaRouter() {
     <>
       {/* $FlowFixMe */}
       <Router history={memory}>
-        <Route component={LocationPage} path="/" exact />
+        <Route component={LocationPage} path={routePaths.LOCATION} exact />
         <Route component={ChatPage} path={routePaths.CHAT} />
         <Route component={HuntingListPage} path={routePaths.HUNTING_LIST} />
         <Route component={DuelPage} path={routePaths.DUELS} />

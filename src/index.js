@@ -2,12 +2,14 @@
 
 import React from "react"
 import ReactDOM from "react-dom"
-import { RoutersHistoryController } from "@lib/histories"
+import { RoutersHistoryController, routePaths } from "@lib/histories"
 import { App } from "./app"
 import * as serviceWorker from "./serviceWorker"
 
+const initialEntry = routePaths.LOCATION
+
 const app = () => (
-  <RoutersHistoryController>
+  <RoutersHistoryController initialEntries={[initialEntry]}>
     <App />
   </RoutersHistoryController>
 )

@@ -20,6 +20,7 @@ export type HistoryContext = {
 export const RoutersHistoryContext = createContext<HistoryContext>({})
 
 export const routePaths = {
+  LOCATION: "/",
   CHAT: "/chat",
   HUNTING_LIST: "/hunting-list",
   DUELS: "/duels",
@@ -91,7 +92,7 @@ export function RoutersHistoryController({
     () => ({
       browser: createBrowserHistory(),
       memory: createMemoryHistory({
-        initialEntries: ["/", ...initialEntries],
+        initialEntries: [...initialEntries],
         initialIndex,
       }),
     }),
