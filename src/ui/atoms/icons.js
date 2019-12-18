@@ -42,7 +42,7 @@ export type SpriteIconAssets = $Values<typeof indexes>
 export type IconsType = "money" | "location" | "equipment"
 
 export type SpriteIconProps = {
-  icon: SpriteIconAssets,
+  icon: number,
   type: IconsType,
   inline?: boolean,
 }
@@ -55,7 +55,7 @@ export function getIconPadding(type: IconsType) {
   return sizes[type].padding
 }
 
-export function getIconPosition(icon: SpriteIconAssets, type: IconsType) {
+export function getIconPosition(icon: number, type: IconsType) {
   return -icon * getIconSize(type) - getIconPadding(type)
 }
 
