@@ -12,72 +12,89 @@ import { ifProp } from "@lib/styled-component-layout"
 
 const equipments = [
   {
-    equip: true,
-    title: "Крепкая дубина",
-    count: "7",
-    type: EquipmentsScheme.weapon,
+    isEquipped: true,
     placeholder: "Оружие",
+    type: EquipmentsScheme.weapon,
+    info: {
+      title: "Крепкая дубина",
+      count: "7",
+    },
   },
   {
-    equip: true,
-    title: "Круглый щит",
-    count: "4",
+    isEquipped: true,
     type: EquipmentsScheme.shield,
     placeholder: "Щит",
+    info: {
+      title: "Круглый щит",
+      count: "4",
+    },
   },
   {
-    equip: true,
-    title: "Шлем Витаса",
-    count: "1",
+    isEquipped: true,
     type: EquipmentsScheme.helmet,
     placeholder: "Шлем",
+    info: {
+      title: "Шлем Витаса",
+      count: "1",
+    },
   },
   {
-    equip: true,
-    title: "Поручни Гладиолуса",
-    count: "4",
+    isEquipped: true,
     type: EquipmentsScheme.bracer,
     placeholder: "Наручи",
+    info: {
+      title: "Поручни Гладиолуса",
+      count: "4",
+    },
   },
   {
-    equip: true,
-    title: "Кольца Витаса",
-    count: "4",
+    isEquipped: true,
     type: EquipmentsScheme.armor,
     placeholder: "Броня",
+    info: {
+      title: "Кольца Витаса",
+      count: "4",
+    },
   },
   {
-    equip: true,
-    title: "Шлепанцы Гладиолуса",
-    count: "1",
+    isEquipped: true,
     type: EquipmentsScheme.footwear,
     placeholder: "Поножи",
+    info: {
+      title: "Шлепанцы Гладиолуса",
+      count: "1",
+    },
   },
   {
-    equip: true,
-    title: "Подвеска Стажника",
-    count: "1",
+    isEquipped: true,
     type: EquipmentsScheme.suspension,
     placeholder: "Амулет",
+    info: {
+      title: "Подвеска Стажника",
+      count: "1",
+    },
   },
   {
-    equip: true,
-    title: "Бронекольцо",
-    count: "1",
+    isEquipped: true,
     type: EquipmentsScheme.ring,
     placeholder: "Кольца",
+    info: {
+      title: "Бронекольцо",
+      count: "1",
+    },
   },
   {
-    equip: false,
-    count: "0",
+    isEquipped: false,
     type: EquipmentsScheme.belt,
     placeholder: "Пояс",
   },
   {
-    equip: true,
-    count: "5",
-    title: "Для заданий",
+    isEquipped: true,
     type: EquipmentsScheme.quests,
+    info: {
+      count: "5",
+      title: "Для заданий",
+    },
   },
 ]
 
@@ -165,14 +182,21 @@ export function HeroEquipmentPage() {
           <List
             data={equipments}
             renderRow={(equipment) => (
-              <EquipmentItem key={equipment.type} isEmpty={!equipment.equip}>
+              <EquipmentItem
+                key={equipment.type}
+                isEmpty={!equipment.isEquipped}
+              >
                 <Icon
                   icon={spriteIcon.indexes.equipment[equipment.type]}
                   type="equipment"
                   inline
                 />
-                <EquipmentCount>[{equipment.count}]</EquipmentCount>
-                <p>{equipment.title || equipment.placeholder}</p>
+                <EquipmentCount>[{equipment?.info?.count ?? 0}]</EquipmentCount>
+                <p>
+                  {equipment.isEquipped
+                    ? equipment.info.title
+                    : equipment.placeholder}
+                </p>
               </EquipmentItem>
             )}
           />
