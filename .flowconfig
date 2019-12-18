@@ -8,6 +8,7 @@
 
 [options]
 esproposal.optional_chaining=enable
+esproposal.nullish_coalescing=enable
 
 module.name_mapper='^@lib/' ->'<PROJECT_ROOT>/src/lib/'
 module.name_mapper='^@mobileFight/ui' ->'<PROJECT_ROOT>/src/ui'
