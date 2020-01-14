@@ -1,33 +1,31 @@
 // @flow strict
 
 import React, { type Node, createContext, useMemo, useContext } from "react"
-import {
-  type MemoryHistory,
-  type BrowserHistory,
-  createMemoryHistory,
-  createBrowserHistory,
-} from "history"
+import { type MemoryHistory, createMemoryHistory } from "history"
 import {
   useCustomNavigationBehaviors,
   commonBehaviors,
 } from "./custom-navigation-behavior"
 
 export type HistoryContext = {
-  browser: BrowserHistory,
   memory: MemoryHistory,
 }
 
 export const RoutersHistoryContext = createContext<HistoryContext>({})
 
 export const routePaths = {
-  LOCATION: "/",
-  CHAT: "/chat",
-  HUNTING_LIST: "/hunting-list",
-  DUELS: "/duels",
-  MARKET: "/market",
-  PRODUCTS: "/products",
-  EQUIPMENT: "/equipment",
-  QUESTS: "/quests-list",
+  location: "/",
+  chat: "/chat",
+  hunting_list: "/hunting-list",
+  duels: "/duels",
+  market: "/market",
+  products: "/products",
+  equipment: "/equipment",
+  quests: "/quests-list",
+  auth: {
+    login: "/join/login",
+    registtation: "/join/registtation",
+  },
 }
 
 export function useRouterHistories() {
@@ -90,7 +88,6 @@ export function RoutersHistoryController({
 }) {
   const histories = useMemo(
     () => ({
-      browser: createBrowserHistory(),
       memory: createMemoryHistory({
         initialEntries: [...initialEntries],
         initialIndex,

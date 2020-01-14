@@ -1,5 +1,5 @@
-// flow-typed signature: acc5dc484cf1c2c8e5ed444ee98a9513
-// flow-typed version: ad8465c97a/react-router_v5.x.x/flow_>=v0.104.x
+// flow-typed signature: 1f000048434229fbad1dbd00c6046a0c
+// flow-typed version: 822e55b7ba/react-router_v5.x.x/flow_>=v0.104.x
 
 declare module "react-router" {
   // NOTE: many of these are re-exported by react-router-dom and
@@ -138,6 +138,25 @@ declare module "react-router" {
     pathname: string,
     options?: MatchPathOptions | string | string[]
   ): null | Match;
-  
+
+  declare export function useHistory(): $PropertyType<ContextRouter, 'history'>;
+  declare export function useLocation(): $PropertyType<ContextRouter, 'location'>;
+  declare export function useParams(): $PropertyType<$PropertyType<ContextRouter, 'match'>, 'params'>;
+  declare export function useRouteMatch(path?: MatchPathOptions | string | string[]): $PropertyType<ContextRouter, 'match'>;
+
   declare export function generatePath(pattern?: string, params?: {...}): string;
+
+  declare export default {
+    StaticRouter: typeof StaticRouter,
+    MemoryRouter: typeof MemoryRouter,
+    Router: typeof Router,
+    Prompt: typeof Prompt,
+    Redirect: typeof Redirect,
+    Route: typeof Route,
+    Switch: typeof Switch,
+    withRouter: typeof withRouter,
+    matchPath: typeof matchPath,
+    generatePath: typeof generatePath,
+    ...
+  };
 }

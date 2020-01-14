@@ -8,15 +8,15 @@ import { useMemoryNavigator, routePaths } from "@lib/histories"
 const defaultItems = [
   {
     title: "Магазин",
-    to: routePaths.MARKET,
+    to: routePaths.market,
   },
   {
     title: "Чат",
-    to: routePaths.CHAT,
+    to: routePaths.chat,
   },
   {
     title: "Снаряжение",
-    to: routePaths.EQUIPMENT,
+    to: routePaths.equipment,
   },
 ]
 

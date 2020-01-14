@@ -1,8 +1,8 @@
 // @flow strict
 
 import React from "react"
-import { Route, Router } from "react-router"
-import { useRouterHistories, routePaths } from "@lib/histories"
+import { Route } from "react-router"
+import { routePaths } from "@lib/histories"
 import {
   CustomNavigationBehaviorProvider,
   combineBehaviors,
@@ -17,31 +17,32 @@ import { HeroEquipmentPage } from "./arena/equipment/page"
 import { QuestsListPage } from "./arena/quests-list/page"
 import { ChatPage } from "./chat/page"
 
-export function ArenaRouter() {
-  const { memory } = useRouterHistories()
+export const ArenaRoutes = () => {
+  const isAuth = true
 
-  return (
-    <>
-      {/* $FlowFixMe */}
-      <Router history={memory}>
-        <Route component={LocationPage} path={routePaths.LOCATION} exact />
-        <Route component={ChatPage} path={routePaths.CHAT} />
-        <Route component={HuntingListPage} path={routePaths.HUNTING_LIST} />
-        <Route component={DuelPage} path={routePaths.DUELS} />
-        <Route component={MarketPage} path={routePaths.MARKET} />
-        <Route component={ProductsPage} path={routePaths.PRODUCTS} />
-        <Route component={HeroEquipmentPage} path={routePaths.EQUIPMENT} />
-        <Route component={QuestsListPage} path={routePaths.QUESTS} />
-      </Router>
-    </>
-  )
+  if (isAuth) {
+    return (
+      <>
+        <Route component={LocationPage} path={routePaths.location} exact />
+        <Route component={ChatPage} path={routePaths.chat} />
+        <Route component={HuntingListPage} path={routePaths.hunting_list} />
+        <Route component={DuelPage} path={routePaths.duels} />
+        <Route component={MarketPage} path={routePaths.market} />
+        <Route component={ProductsPage} path={routePaths.products} />
+        <Route component={HeroEquipmentPage} path={routePaths.equipment} />
+        <Route component={QuestsListPage} path={routePaths.quests} />
+      </>
+    )
+  }
+
+  return null
 }
 
 const behaviors = combineBehaviors([])
 
 export const routes = (
   <CustomNavigationBehaviorProvider behaviors={behaviors}>
-    <Route component={LoginPage} path="/join/login" />
-    <Route component={ArenaRouter} />
+    <Route component={LoginPage} path={routePaths.auth.login} />
+    <ArenaRoutes />
   </CustomNavigationBehaviorProvider>
 )

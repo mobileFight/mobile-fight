@@ -6,7 +6,7 @@ import { RoutersHistoryController, routePaths } from "@lib/histories"
 import { App } from "./app"
 import * as serviceWorker from "./serviceWorker"
 
-const initialEntry = routePaths.LOCATION
+const initialEntry = routePaths.location
 
 const app = () => (
   <RoutersHistoryController initialEntries={[initialEntry]}>

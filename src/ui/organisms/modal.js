@@ -7,6 +7,7 @@ import React, {
   useState,
   createRef,
   useContext,
+  useCallback,
 } from "react"
 import ReactDOM from "react-dom"
 import styled from "styled-components"
@@ -54,11 +55,11 @@ export function Modal({
 }) {
   const rootElement = useContext(ModalContext)
 
-  function handleClick() {
+  const handleClick = useCallback(() => {
     if (onOverlayClick) {
       onOverlayClick()
     }
-  }
+  }, [onOverlayClick])
 
   if (rootElement) {
     return ReactDOM.createPortal(

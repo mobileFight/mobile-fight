@@ -29,7 +29,7 @@ export function MarketPage() {
               primary
               key={slot}
               onClick={() => {
-                memory.push(routePaths.PRODUCTS, { title: slot })
+                memory.push(routePaths.products, { title: slot })
               }}
             >
               {slot}

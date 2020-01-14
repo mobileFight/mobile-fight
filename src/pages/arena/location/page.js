@@ -91,7 +91,7 @@ export function LocationPage() {
           <Button
             primary
             onClick={() => {
-              navigation.navigate(routePaths.HUNTING_LIST)
+              navigation.navigate(routePaths.hunting_list)
             }}
           >
             Охота
@@ -99,7 +99,7 @@ export function LocationPage() {
           <Button
             primary
             onClick={() => {
-              navigation.navigate(routePaths.DUELS)
+              navigation.navigate(routePaths.duels)
             }}
           >
             Дуэли
@@ -110,7 +110,7 @@ export function LocationPage() {
             <LocationBody>
               <LocationItem
                 onClick={() => {
-                  navigation.navigate(routePaths.QUESTS)
+                  navigation.navigate(routePaths.quests)
                 }}
               >
                 <LocationItemLeftIcon>

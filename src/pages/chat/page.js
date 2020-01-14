@@ -1,7 +1,8 @@
 // @flow strict
 
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import styled from "styled-components"
+import { isHotkey } from "is-hotkey"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { Message } from "@features/chat"
 import { List } from "@features/common"
@@ -32,10 +33,10 @@ const MessageWrapper = styled(Message)`
   margin-bottom: 7px !important;
 `
 
-const messagesList = []
-
 export function ChatPage() {
-  const [messageValue, setMessage] = useState("")
+  const idRef = useRef(1)
+  const [messageValue, setMessageValue] = useState("")
+  const [messagesStub, setMessages] = useState([])
   const navigator = useMemoryNavigator()
 
   function toBackLocation() {
@@ -43,7 +44,23 @@ export function ChatPage() {
   }
 
   function changeMessage(event: SyntheticInputEvent<HTMLInputElement>) {
-    setMessage(event.target.value)
+    setMessageValue(event.target.value)
+  }
+
+  function sendMessage() {
+    if (messageValue.trim().length > 0) {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          id: idRef.current++,
+          date: Date.now(),
+          name: "user1 (test)",
+          lvl: 20,
+          text: messageValue,
+        },
+      ])
+      setMessageValue("")
+    }
   }
 
   return (
@@ -64,13 +81,21 @@ export function ChatPage() {
           placeholder="Type here..."
           value={messageValue}
           onChange={changeMessage}
+          onKeyDown={(event: SyntheticKeyboardEvent<HTMLInputElement>) => {
+            if (isHotkey("Enter", event)) {
+              sendMessage()
+            }
+          }}
         />
-        <SendButton primary>send</SendButton>
+        <SendButton primary onClick={sendMessage}>
+          send
+        </SendButton>
         <Messages>
           <List
-            data={messagesList}
+            data={messagesStub}
             renderRow={(message) => (
               <MessageWrapper
+                key={message.id}
                 date={message.date}
                 name={message.name}
                 lvl={message.lvl}

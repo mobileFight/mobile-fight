@@ -10,17 +10,19 @@ import { ModalRootProvider } from "@mobileFight/ui/organisms"
 import { routes } from "./pages"
 import { GlobalStyles } from "./global-styles"
 
+const initialThemes = { lightTheme }
+
 export function App() {
-  const { browser } = useRouterHistories()
+  const { memory } = useRouterHistories()
 
   return (
-    <ThemeController themes={{ lightTheme }} initialTheme="lightTheme">
+    <ThemeController themes={initialThemes} initialTheme="lightTheme">
       <ModalRootProvider>
         <>
           <Normalize />
           <GlobalStyles />
           {/* $FlowFixMe */}
-          <Router history={browser}>{routes}</Router>
+          <Router history={memory}>{routes}</Router>
         </>
       </ModalRootProvider>
     </ThemeController>
