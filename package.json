@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "effector": "^20.10.0",
+    "effector-react": "^20.6.0",
     "history": "^4.9.0",
     "is-hotkey": "^0.1.6",
     "moment": "^2.24.0",
