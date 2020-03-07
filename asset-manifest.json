@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/static/js/main.0095c09c.chunk.js",
-    "main.js.map": "/static/js/main.0095c09c.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.e2118cec.js",
-    "runtime~main.js.map": "/static/js/runtime~main.e2118cec.js.map",
-    "static/js/2.abc729a5.chunk.js": "/static/js/2.abc729a5.chunk.js",
-    "static/js/2.abc729a5.chunk.js.map": "/static/js/2.abc729a5.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.ddb462f9ec6dc4b5f7c09f16c19e3149.js": "/precache-manifest.ddb462f9ec6dc4b5f7c09f16c19e3149.js",
-    "service-worker.js": "/service-worker.js",
-    "static/media/frame.png": "/static/media/frame.71e3e185.png",
-    "static/media/location.jpg": "/static/media/location.db910f31.jpg"
+    "main.js": "/mobileFight/mobile-fight/static/js/main.50066655.chunk.js",
+    "main.js.map": "/mobileFight/mobile-fight/static/js/main.50066655.chunk.js.map",
+    "runtime~main.js": "/mobileFight/mobile-fight/static/js/runtime~main.e5ca6de2.js",
+    "runtime~main.js.map": "/mobileFight/mobile-fight/static/js/runtime~main.e5ca6de2.js.map",
+    "static/js/2.808be3cb.chunk.js": "/mobileFight/mobile-fight/static/js/2.808be3cb.chunk.js",
+    "static/js/2.808be3cb.chunk.js.map": "/mobileFight/mobile-fight/static/js/2.808be3cb.chunk.js.map",
+    "index.html": "/mobileFight/mobile-fight/index.html",
+    "precache-manifest.0d9ed583d10a0e00959ec853a8fff52d.js": "/mobileFight/mobile-fight/precache-manifest.0d9ed583d10a0e00959ec853a8fff52d.js",
+    "service-worker.js": "/mobileFight/mobile-fight/service-worker.js",
+    "static/media/frame.png": "/mobileFight/mobile-fight/static/media/frame.71e3e185.png",
+    "static/media/location.jpg": "/mobileFight/mobile-fight/static/media/location.db910f31.jpg"
   }
 }
