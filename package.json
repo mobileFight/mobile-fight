@@ -28,6 +28,8 @@
     "predeploy": "npm run build",
     "deploy": "npx gh-pages -d build"
   },
+  "author": "Shelomanov Dmitry <dmitryshelomanov@mail.ru>",
+  "homepage": "https://github.com/mobile-fight",
   "eslintConfig": {
     "extends": "react-app"
   },
