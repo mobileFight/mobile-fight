@@ -3,5 +3,4 @@ build
 .git
 .vscode
 public
-flow-typed/
 src/serviceWorker.js

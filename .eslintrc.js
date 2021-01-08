@@ -1,9 +1,14 @@
 module.exports = {
-  extends: ["plugin:jest/recommended", "react-app", "@atomix/react"],
-  parser: "babel-eslint",
-  globals: {
-    grecaptcha: true,
-  },
+  plugins: ["react-hooks", "@typescript-eslint"],
+  extends: [
+    "plugin:jest/recommended",
+    "@atomix/react",
+    "prettier/@typescript-eslint",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+  ],
+
+  parser: "@typescript-eslint/parser",
   rules: {
     "no-use-before-define": [
       "error",
@@ -25,5 +30,6 @@ module.exports = {
     ],
     "react/require-default-props": "off",
     "react/jsx-wrap-multilines": "off",
+    "import/extensions": "off",
   },
 }
