@@ -18,13 +18,12 @@ const defaultItems = [
   },
 ]
 
-export function ArenaFooter({
-  menuItems = defaultItems,
-  isNested,
-}: {
+type Props = {
   menuItems?: Array<{ title: string; to: string }>
   isNested?: boolean
-}) {
+}
+
+export function ArenaFooter({ menuItems = defaultItems, isNested }: Props) {
   const navigator = useMemoryNavigator()
   const [isOpenMenu, toggleMenu] = useState(false)
   const hasItems = menuItems.length > 0

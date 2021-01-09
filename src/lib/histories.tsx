@@ -76,15 +76,17 @@ export function useMemoryNavigator() {
   }
 }
 
+type Props = {
+  children: React.ReactNode
+  initialEntries?: Array<string>
+  initialIndex?: number
+}
+
 export function RoutersHistoryController({
   children,
   initialEntries = [],
   initialIndex = 0,
-}: {
-  children: React.ReactNode
-  initialEntries?: Array<string>
-  initialIndex?: number
-}) {
+}: Props) {
   const histories = useMemo(
     () => ({
       memory: createMemoryHistory({

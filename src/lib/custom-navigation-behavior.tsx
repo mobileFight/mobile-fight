@@ -36,7 +36,7 @@ export function CustomNavigationBehaviorProvider({
   children,
   behaviors,
 }: {
-  children: Node
+  children: React.ReactNode
   behaviors: NavigationBehaviorContextType
 }) {
   return (

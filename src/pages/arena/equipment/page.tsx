@@ -177,7 +177,7 @@ export function HeroEquipmentPage() {
         </Header>
         <EquipmentBody>
           <List
-            extracKey={(it) => it.type}
+            extracKey={(it) => it.type.toString()}
             data={equipments}
             renderRow={(equipment) => (
               <EquipmentItem isEmpty={!equipment.isEquipped}>
@@ -189,7 +189,8 @@ export function HeroEquipmentPage() {
                 <EquipmentCount>{equipment?.info?.count || 0}</EquipmentCount>
                 <p>
                   {equipment.isEquipped
-                    ? equipment.info.title
+                    ? // @ts-ignore
+                      equipment.info.title
                     : equipment.placeholder}
                 </p>
               </EquipmentItem>

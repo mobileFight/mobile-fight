@@ -1,5 +1,5 @@
 import React from "react"
-import { Route } from "react-router"
+import { Route, Switch } from "react-router"
 import { routePaths } from "@lib/histories"
 import {
   CustomNavigationBehaviorProvider,
@@ -16,24 +16,18 @@ import { QuestsListPage } from "./arena/quests-list/page"
 import { ChatPage } from "./chat/page"
 
 export function ArenaRoutes() {
-  const isAuth = true
-
-  if (isAuth) {
-    return (
-      <>
-        <Route component={LocationPage} path={routePaths.location} exact />
-        <Route component={ChatPage} path={routePaths.chat} />
-        <Route component={HuntingListPage} path={routePaths.hunting_list} />
-        <Route component={DuelPage} path={routePaths.duels} />
-        <Route component={MarketPage} path={routePaths.market} />
-        <Route component={ProductsPage} path={routePaths.products} />
-        <Route component={HeroEquipmentPage} path={routePaths.equipment} />
-        <Route component={QuestsListPage} path={routePaths.quests} />
-      </>
-    )
-  }
-
-  return null
+  return (
+    <Switch>
+      <Route component={LocationPage} path={routePaths.location} exact />
+      <Route component={ChatPage} path={routePaths.chat} />
+      <Route component={HuntingListPage} path={routePaths.hunting_list} />
+      <Route component={DuelPage} path={routePaths.duels} />
+      <Route component={MarketPage} path={routePaths.market} />
+      <Route component={ProductsPage} path={routePaths.products} />
+      <Route component={HeroEquipmentPage} path={routePaths.equipment} />
+      <Route component={QuestsListPage} path={routePaths.quests} />
+    </Switch>
+  )
 }
 
 const behaviors = combineBehaviors([])

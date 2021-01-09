@@ -14,7 +14,3 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box
   }
 `
-
-const f = {}
-
-console.log(f?.a)

@@ -21,11 +21,11 @@ export function MarketPage() {
       <>
         <H3 center>-Магазин-</H3>
         <List
+          extracKey={(it) => it}
           data={slots}
           renderRow={(slot) => (
             <Button
               primary
-              key={slot}
               onClick={() => {
                 memory.push(routePaths.products, { title: slot })
               }}

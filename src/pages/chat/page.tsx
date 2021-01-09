@@ -89,6 +89,7 @@ export function ChatPage() {
           value={messageValue}
           onChange={changeMessage}
           onKeyDown={(event) => {
+            // @ts-ignore
             if (isHotkey("Enter", event)) {
               sendMessage()
             }

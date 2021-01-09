@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { mixins, ifProp, MixinProps } from "../../lib/styled-component-layout"
+import { mixins, MixinProps } from "../../lib/styled-component-layout"
 
 export const Container = styled.div`
   ${mixins};
@@ -16,14 +16,12 @@ export const Row = styled.div<MixinProps & { gap?: string }>`
   flex-direction: row;
 
   ${(p) =>
-    ifProp(
-      p.gap,
-      css`
-        & > :not(:first-child) {
-          margin-left: ${p.gap};
-        }
-      `,
-    )};
+    p.gap &&
+    css`
+      & > :not(:first-child) {
+        margin-left: ${p.gap};
+      }
+    `};
 
   ${mixins}
 `
@@ -33,14 +31,12 @@ export const Col = styled.div<MixinProps & { gap?: string }>`
   flex-direction: column;
 
   ${(p) =>
-    ifProp(
-      p.gap,
-      css`
-        & > :not(:first-child) {
-          margin-top: ${p.gap};
-        }
-      `,
-    )};
+    p.gap &&
+    css`
+      & > :not(:first-child) {
+        margin-left: ${p.gap};
+      }
+    `};
 
   ${mixins};
 `
