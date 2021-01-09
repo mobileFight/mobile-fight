@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@lib/*": ["./lib/*"],
+      "@mobileFight/ui/*": ["./ui/*"],
+      "@assets/*": ["./assets/*"],
+      "@features/*": ["./features/*"]
+    }
+  }
+}
