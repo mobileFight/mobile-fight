@@ -100,9 +100,10 @@ export function ProductsPage() {
         <H3 center>-Оружие-</H3>
         <ProductBody>
           <List
+            extracKey={(it) => it.title}
             data={products}
             renderRow={(product) => (
-              <ProductItem key={product.title}>
+              <ProductItem>
                 <img src={weaponImage} alt="*" />
                 <Description>
                   <p>{product.title}</p>

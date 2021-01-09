@@ -18,6 +18,7 @@ export function DuelPage() {
       <>
         <H3 center>-Дуэли-</H3>
         <List
+          extracKey={(it) => it}
           data={duels}
           renderRow={(duel) => (
             <Button primary key={duel}>

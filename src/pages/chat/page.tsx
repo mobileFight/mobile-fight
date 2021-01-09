@@ -31,10 +31,18 @@ const MessageWrapper = styled(Message)`
   margin-bottom: 7px !important;
 `
 
+type Message = {
+  id: number
+  date: string
+  name: string
+  lvl: number
+  text: string
+}
+
 export function ChatPage() {
   const idRef = useRef(1)
   const [messageValue, setMessageValue] = useState("")
-  const [messagesStub, setMessages] = useState([])
+  const [messagesStub, setMessages] = useState<Array<Message>>([])
   const navigator = useMemoryNavigator()
 
   function toBackLocation() {
@@ -51,12 +59,13 @@ export function ChatPage() {
         ...prevMessages,
         {
           id: idRef.current++,
-          date: Date.now(),
+          date: Date.now().toString(),
           name: "user1 (test)",
           lvl: 20,
           text: messageValue,
         },
       ])
+
       setMessageValue("")
     }
   }
@@ -91,9 +100,9 @@ export function ChatPage() {
         <Messages>
           <List
             data={messagesStub}
+            extracKey={(it) => it.id.toString()}
             renderRow={(message) => (
               <MessageWrapper
-                key={message.id}
                 date={message.date}
                 name={message.name}
                 lvl={message.lvl}

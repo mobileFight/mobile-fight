@@ -11,7 +11,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
-    "shared-types": "git+https://github.com/mobileFight/shared-types.git",
+    "shared-types": "git+https://github.com/mobileFight/shared-types.git#ts",
     "styled-components": "^4.3.2",
     "styled-normalize": "^8.0.6"
   },
@@ -47,6 +47,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@babel/preset-typescript": "^7.12.7",
     "@types/history": "^4.7.8",
+    "@types/is-hotkey": "^0.1.2",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.20",
     "@types/react": "^17.0.0",

@@ -48,14 +48,15 @@ export function HuntingListPage() {
           <MobsList>
             <List
               data={mobs}
+              extracKey={(it) => it.title}
               renderRow={(mob, index) => (
-                <React.Fragment key={mob.title}>
+                <>
                   <MobItem>
                     <img src={mob.img} alt="preview" />
                     {mob.title} [{mob.lvl}]
                   </MobItem>
                   {index < mobs.length - 1 && <Separator w="86%" />}
-                </React.Fragment>
+                </>
               )}
             />
           </MobsList>

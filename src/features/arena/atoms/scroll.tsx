@@ -66,7 +66,7 @@ function Plane({ down = false }: { down?: boolean }) {
   )
 }
 
-export function SimpleScroll({ children }: { children?: Node }) {
+export function SimpleScroll({ children }: { children?: React.ReactNode }) {
   return (
     <ScrollWrapper>
       <Plane />

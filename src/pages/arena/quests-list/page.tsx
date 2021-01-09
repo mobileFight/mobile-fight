@@ -1,7 +1,6 @@
-
 import React from "react"
 import styled from "styled-components"
-import { type QuestStatesType, QuestStates } from "shared-types"
+import { QuestStates } from "shared-types"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter } from "@features/arena"
 import { List } from "@features/common"
@@ -11,7 +10,7 @@ const QuestsWrapper = styled.div`
   margin: 15px 0;
 `
 
-const QuestTypeTitle = styled.h3<{ questType: QuestStatesType }>`
+const QuestTypeTitle = styled.h3<{ questType: QuestStates }>`
   margin: 0;
   font-weight: 500;
   font-size: 20px;
@@ -23,7 +22,7 @@ const QuestTypeTitle = styled.h3<{ questType: QuestStatesType }>`
   }
 `
 
-const QuestTitle = styled.p<{ questType: QuestStatesType }>`
+const QuestTitle = styled.p<{ questType: QuestStates }>`
   padding: 0;
   margin: 5px;
   padding: 5px;
@@ -33,13 +32,17 @@ const QuestTitle = styled.p<{ questType: QuestStatesType }>`
 
 const active = ["Козенное имущество", "Наглые воришки"]
 
-function renderQuest(questType: QuestStatesType) {
+function renderQuest(questType: QuestStates) {
   return (quest: string) => (
     <React.Fragment key={quest}>
       <QuestTitle questType={questType}>{quest}</QuestTitle>
       <Separator w="100%" />
     </React.Fragment>
   )
+}
+
+function keyExtractor(it: string) {
+  return it
 }
 
 export function QuestsListPage() {
@@ -51,15 +54,27 @@ export function QuestsListPage() {
           <QuestTypeTitle questType={QuestStates.active}>
             Активные
           </QuestTypeTitle>
-          <List data={active} renderRow={renderQuest(QuestStates.active)} />
+          <List
+            extracKey={keyExtractor}
+            data={active}
+            renderRow={renderQuest(QuestStates.active)}
+          />
           <QuestTypeTitle questType={QuestStates.available}>
             Доступные
           </QuestTypeTitle>
-          <List data={active} renderRow={renderQuest(QuestStates.available)} />
+          <List
+            extracKey={keyExtractor}
+            data={active}
+            renderRow={renderQuest(QuestStates.available)}
+          />
           <QuestTypeTitle questType={QuestStates.completed}>
             Завершенные
           </QuestTypeTitle>
-          <List data={active} renderRow={renderQuest(QuestStates.completed)} />
+          <List
+            extracKey={keyExtractor}
+            data={active}
+            renderRow={renderQuest(QuestStates.completed)}
+          />
         </QuestsWrapper>
       </>
     </ArenaTemplate>

@@ -177,12 +177,10 @@ export function HeroEquipmentPage() {
         </Header>
         <EquipmentBody>
           <List
+            extracKey={(it) => it.type}
             data={equipments}
             renderRow={(equipment) => (
-              <EquipmentItem
-                key={equipment.type}
-                isEmpty={!equipment.isEquipped}
-              >
+              <EquipmentItem isEmpty={!equipment.isEquipped}>
                 <Icon
                   icon={spriteIcon.indexes.equipment[equipment.type]}
                   type="equipment"

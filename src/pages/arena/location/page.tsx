@@ -1,7 +1,6 @@
-
 import React from "react"
 import styled from "styled-components"
-import { type QuestStatesType, QuestStates } from "shared-types"
+import { QuestStates } from "shared-types"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter, LocationPreview, SimpleScroll } from "@features/arena"
 import { List } from "@features/common"
@@ -58,7 +57,7 @@ const LocationItemLeftIcon = styled.div`
   margin-right: 15px;
 `
 
-const QuestsCounter = styled.span<{ questType: QuestStatesType }>`
+const QuestsCounter = styled.span<{ questType: QuestStates }>`
   color: ${(props) => props.theme.colors.quests[props.questType]};
 `
 
@@ -71,7 +70,7 @@ const locations = [
   "Верхний Город",
 ]
 
-function renderQuestsCounter(counter: number, questType: QuestStatesType) {
+function renderQuestsCounter(counter: number, questType: QuestStates) {
   return <QuestsCounter questType={questType}>{counter}</QuestsCounter>
 }
 
@@ -123,9 +122,10 @@ export function LocationPage() {
               </LocationItem>
               <Separator w="86%" />
               <List
+                extracKey={(it) => it}
                 data={locations}
                 renderRow={(location, index) => (
-                  <React.Fragment key={location}>
+                  <>
                     <LocationItem>
                       <LocationItemLeftIcon>
                         <spriteIcon.component
@@ -136,7 +136,7 @@ export function LocationPage() {
                       {location}
                     </LocationItem>
                     {index < locations.length - 1 && <Separator w="86%" />}
-                  </React.Fragment>
+                  </>
                 )}
               />
             </LocationBody>
