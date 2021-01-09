@@ -14,7 +14,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
-    "shared-types": "git+https://github.com/mobileFight/shared-types.git#ts",
+    "shared-types": "git+https://github.com/mobileFight/shared-types.git",
     "styled-components": "^4.3.2",
     "styled-normalize": "^8.0.6"
   },
