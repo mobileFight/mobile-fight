@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.js": "/mobile-fight/static/js/main.8a210c87.chunk.js",
-    "main.js.map": "/mobile-fight/static/js/main.8a210c87.chunk.js.map",
-    "runtime~main.js": "/mobile-fight/static/js/runtime~main.e060912f.js",
-    "runtime~main.js.map": "/mobile-fight/static/js/runtime~main.e060912f.js.map",
-    "static/js/2.a4e51574.chunk.js": "/mobile-fight/static/js/2.a4e51574.chunk.js",
-    "static/js/2.a4e51574.chunk.js.map": "/mobile-fight/static/js/2.a4e51574.chunk.js.map",
+    "main.js": "/mobile-fight/static/js/main.5c3e58f8.chunk.js",
+    "main.js.map": "/mobile-fight/static/js/main.5c3e58f8.chunk.js.map",
+    "runtime-main.js": "/mobile-fight/static/js/runtime-main.6c9fa2ca.js",
+    "runtime-main.js.map": "/mobile-fight/static/js/runtime-main.6c9fa2ca.js.map",
+    "static/js/2.a91a03d8.chunk.js": "/mobile-fight/static/js/2.a91a03d8.chunk.js",
+    "static/js/2.a91a03d8.chunk.js.map": "/mobile-fight/static/js/2.a91a03d8.chunk.js.map",
     "index.html": "/mobile-fight/index.html",
-    "precache-manifest.e461ea31575a7992a8ed9b8208996cd4.js": "/mobile-fight/precache-manifest.e461ea31575a7992a8ed9b8208996cd4.js",
-    "service-worker.js": "/mobile-fight/service-worker.js",
-    "static/media/frame.png": "/mobile-fight/static/media/frame.71e3e185.png",
-    "static/media/location.jpg": "/mobile-fight/static/media/location.db910f31.jpg"
-  }
+    "static/js/2.a91a03d8.chunk.js.LICENSE.txt": "/mobile-fight/static/js/2.a91a03d8.chunk.js.LICENSE.txt",
+    "static/media/frame.cff088dc.png": "/mobile-fight/static/media/frame.cff088dc.png",
+    "static/media/location.edfcdd04.jpg": "/mobile-fight/static/media/location.edfcdd04.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c9fa2ca.js",
+    "static/js/2.a91a03d8.chunk.js",
+    "static/js/main.5c3e58f8.chunk.js"
+  ]
 }
