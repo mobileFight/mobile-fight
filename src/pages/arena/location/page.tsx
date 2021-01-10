@@ -1,12 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 import { QuestStates } from "shared-types"
+import { useGate } from "effector-react"
 import { ArenaTemplate } from "@mobileFight/ui/templates"
 import { ArenaFooter, LocationPreview, SimpleScroll } from "@features/arena"
 import { List } from "@features/common"
 import { Button, spriteIcon, Separator } from "@mobileFight/ui/atoms"
 import locationPreview from "@assets/location.jpg"
 import { useMemoryNavigator, routePaths } from "@lib/histories"
+import { gate } from "./model"
 
 const HuntingButtonsWrapper = styled.div`
   display: flex;
@@ -76,6 +78,8 @@ function renderQuestsCounter(counter: number, questType: QuestStates) {
 
 export function LocationPage() {
   const navigation = useMemoryNavigator()
+
+  useGate(gate, 1)
 
   return (
     <ArenaTemplate footer={<ArenaFooter />}>

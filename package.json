@@ -3,8 +3,8 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "effector": "^20.10.0",
-    "effector-react": "^20.6.0",
+    "effector": "^20.17.2",
+    "effector-react": "^20.9.0",
     "gh-pages": "^2.2.0",
     "history": "^4.10.1",
     "is-hotkey": "^0.1.6",
